@@ -283,24 +283,24 @@
 <div class="testimonials-area-v3 ">
   <div class="container">
        <div class="row">
-            <div class="testimonials-list">
-                 <!-- Single Testimonial -->
-                {% for reviews in reviews %}
-                {% if forloop.counter > 1 %}
-                 <div class="single-testimonial">
-                      <div class="col-md-12 text-left ">
-                           <div class="testimonial-text">
-                                <p>{% show_page_content reviews 'main' %}</p>
-                               </div>
-                               <div class="author">
-                                     <a href="#" target="_blank">{{ reviews.metadata.teacher }}</a>
-                               </div>
-                         </div>
-                   </div>
-                {% endif %}
-                {% endfor %}
-                   <!-- /Single Testimonial -->
-           </div>
+	            <div class="testimonials-list">
+	                 <!-- Single Testimonial -->
+	                {% for reviews in reviews %}
+	                {% if forloop.counter > 1 %}
+	                 <div class="single-testimonial">
+	                      <div class="col-md-12 text-left ">
+	                           <div class="testimonial-text">
+	                                <p>{% show_page_content reviews 'main' %}</p>
+	                               </div>
+	                               <div class="author">
+	                                     <a href="#" target="_blank">{{ reviews.metadata.teacher }}</a>
+	                               </div>
+	                         </div>
+	                   </div>
+	                {% endif %}
+	                {% endfor %}
+	                   <!-- /Single Testimonial -->
+	           </div>
      </div>
 </div>
 </div>
