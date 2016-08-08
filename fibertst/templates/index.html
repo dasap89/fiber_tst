@@ -1,0 +1,373 @@
+{% extends "base_m.html" %}
+{% load staticfiles fiber_tags thumbnail %}
+
+{% block main %}
+<!-- Start Slider Area -->
+<section class="slider-area slide-v2">
+	<div class="bend niceties preview-3">
+		<div id="ensign-nivoslider-v2" class="slides  overlay-bg">	
+			<img src="{% static "img/sliders/bg-1.jpg" %}" alt="" title="#slider-direction-1"  />
+		</div>
+		<!-- direction 1 -->
+		<div id="slider-direction-1" class="slider-direction slider-one">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<div class="slider-content">
+							<!-- layer 1 -->
+							{% show_page_content 'title-proff' %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Slider Area -->
+
+            		<!--Start Welcome To Estut Area-->
+            		<section class="welcome-estut-area bg-white-2 padding45">
+            			<div class="container">
+            				<div class="row">
+            					<div class="col-md-12">
+            						<div class="area-headding text-center">
+            							<h2 class="section-title">Добро пожаловать в Design School Ideas</h2>
+            						</div>
+            					</div>
+            				</div>
+            				<div class="row">
+            					<div class="estut-tab-wrap">
+            						<!-- Start Tab Menu-->                                                          
+            						<div class="estut-tab-menus text-center">
+            							<ul class="estut-tab" role="tablist">
+            								<li role="presentation" class="active"><a href="index-3.html#trending" aria-controls="trending" role="tab" data-toggle="tab">О школе</a></li>
+            								<li role="presentation"><a href="index-3.html#certified" aria-controls="certified" role="tab" data-toggle="tab">Преподователи</a></li>
+            								<li role="presentation"><a href="index-3.html#book" aria-controls="book" role="tab" data-toggle="tab">База знаний</a></li>
+            								<li role="presentation"><a href="index-3.html#certification" aria-controls="certification" role="tab" data-toggle="tab">Видео-презентация</a></li>
+            							</ul>
+            						</div>
+            						<!-- Start Tab Menu-->
+            						<!-- Start Tab Content-->
+            						<div class="tab-content">
+            							<!-- Start Single Content-->
+            							<div role="tabpanel" class="tab-pane fade in active" id="trending">
+            								<div class="row">
+            									<div class="col-md-6 text-left">
+            										<div class="estut-tab-caption">
+            											{% show_page_content 'about' %}
+            										</div>
+            									</div>
+            									<div class="col-md-6 text-right">
+            										<div class="estut-tab-img">
+            											{% show_page_content 'about-img' %}
+            										</div>
+            									</div>
+            								</div>
+            							</div>
+            							<!-- End Single Content-->
+            							<div role="tabpanel" class="tab-pane fade" id="certified">
+            								<div class="row">
+            									<div class="col-md-6 text-left">
+            										<div class="estut-tab-caption ">
+            											{% show_page_content 'teachers' %}
+            										</div>
+            									</div>
+            									<div class="col-md-6 text-right">
+            										<div class="estut-tab-img">
+            											{% show_page_content 'teachers-img' %}
+            										</div>
+            									</div>
+            								</div>
+            							</div>
+            							<div role="tabpanel" class="tab-pane fade" id="book">
+            								<div class="row">
+            									<div class="col-md-6 text-left">
+            										<div class="estut-tab-caption ">
+            											{% show_page_content 'knowlages' %}
+            										</div>
+            									</div>
+            									<div class="col-md-6 text-right">
+            										<div class="estut-tab-img">
+            											{% show_page_content 'knowlages-img' %}
+            										</div>
+            									</div>
+            								</div>
+            							</div>
+            							<div role="tabpanel" class="tab-pane fade" id="certification">
+            								<div class="row">
+            									<div class="col-md-6 text-left">
+            										<div class="estut-tab-caption ">
+            											{% show_page_content 'video-presentation' %}
+            										</div>
+            									</div>
+            									<div class="col-md-6 text-right">
+            										<div class="estut-tab-img">
+            											{% show_page_content 'video-presentation-img' %}
+            										</div>
+            									</div>
+            								</div>
+            							</div>
+            						</div>
+            						<!-- End Tab Content-->
+            					</div>
+            				</div>
+            			</div>
+            		</section>
+            		<!--End Welcome To Estut Area-->
+            		<!--Start Service v3 area-->
+            		<section class="service-v3-area">
+            			<div class="service-list clear">
+            				<!--Start Single Service-->
+            				<div class="single-service">
+            					<div class="service-bg">
+            						<img src="{% static "img/others/service/1.jpg" %}" alt="service bg">
+            					</div>
+            					<div class="service-info">
+
+            						<h3>Форум</h3>
+            						<p>пообщайся с единомышленниками</p>
+            						<div class="ser-dis-btn">
+            							<a href="#" class="estut-btn-v2 default-color">Подробнее</a>
+            						</div>
+            					</div>
+            				</div>
+            				<!--Start Single Service-->
+            				<!--Start Single Service-->
+            				<div class="single-service">
+            					<div class="service-bg">
+            						<img src="{% static "img/others/service/2.jpg" %}" alt="service bg">
+            					</div>
+            					<div class="service-info">
+
+            						<h3>Оплата</h3>
+            						<p>как оплатить обучение в школе</p>
+            						<div class="ser-dis-btn">
+            							<a href="payment/" class="estut-btn-v2 default-color">Подробнее</a>
+            						</div>
+            					</div>
+            				</div>
+            				<!--Start Single Service-->
+            				<!--Start Single Service-->
+            				<div class="single-service hidden-sm">
+            					<div class="service-bg">
+            						<img src="{% static "img/others/service/3.jpg" %}" alt="service bg">
+            					</div>
+            					<div class="service-info">
+
+            						<h3>Как записаться?</h3>
+            						<p>быстрая возможность присоединиться</p>
+            						<div class="ser-dis-btn">
+            							<a href="how-to-enroll/" class="estut-btn-v2 default-color">Подробнее</a>
+            						</div>
+            					</div>
+            				</div>
+            				<!--Start Single Service-->
+            			</div>
+            		</section>
+            		<!--End Service v3 area-->
+
+            		<!-- Start Popullar Courses Area-->
+            		<!-- Start Popular Courses Area -->
+            		<section class="populer-courses-area-v3 padding45 bg-gray ">
+            			<div class="container">
+            				<!-- Start Area headding -->
+            				<div class="row">
+            					<div class="col-md-12">
+            						<div class="area-headding text-center">
+            							<h2 class="section-title">Наши самые популярные курсы</h2>
+            						</div>
+            					</div>
+            				</div>
+            				<!-- End Area headding -->
+            				<div class="clear"></div>
+            				<!-- Start Populer Courses Container -->
+            				<div class="row">
+            					<div class=" style-3 owl-pagination-default ">
+            						<!-- Start Populer Courses Single page -->
+		<div class="populer-courses-list ">
+			<!--Start Big Post -->
+			<div class="col-md-12 padding-b50">
+				<!-- Start Single Courses -->
+				{% with course=cources.0 %}
+				<div class="single-course big-post clear ">
+                                    <div class="col-md-6 padding0">
+                                         <div class="course-thumb">
+                                              <img  src="{% thumbnail course.image 570x550 crop="smart" %}" alt="{{ course.title }}" />
+                                              <div class="price-sticker">
+                                                   <span><i class="fa fa-rub" aria-hidden="true"></i>{{ course.metadata.description }}</span>
+                                             </div>
+                                       </div>
+                                 </div>
+                                 <div class="col-md-6 padding0">
+                                   <div class="course-info">
+                                        <div class="course-content">
+                                             <h2 class="course-title"><a href="{{ course.get_absolute_url }}">{{ course }}</a></h2>
+                                             <div class="author">Преподователь<a href="#">{{ course.metadata.teacher }}</a></div>
+                                             {% show_page_content course 'intro'  %}
+                                                  <div class="ser-dis-btn">
+                                                       <a class="estut-btn-v2 default-color active" href="{{ course.get_absolute_url }}">Подробнее</a>
+                                                 </div>
+                                           </div>
+                                           <div class="rating">
+                                            <ul>
+                                                 <li>
+                                                      <p><span><i class="fa fa-book"></i></span>{{ course.get_children.count }} уроков</p>
+                                                </li>
+                                                <li>
+                                                      <p><span><i class="fa fa-comment-o" aria-hidden="true"></i></span>1</p>
+                                                </li>
+                                          </ul>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  {% endwith %}
+                  <!-- End Single Courses -->
+            </div>
+            <!--End Big Post -->
+            <!--Start small Post -->
+            {% for course in cources %}
+            {% if forloop.counter > 1 %}
+            <div class="col-md-4 ">
+                 <!-- Start Single Courses -->
+                 <div class="single-course">
+                      <div class="course-thumb">
+                           <img src="{% thumbnail course.get_image 360x300 crop="smart" %}" alt="{{ course.title }}" />
+                           <div class="price-sticker">
+                                <span><i class="fa fa-rub" aria-hidden="true"></i>{{ course.metadata.description }}</span>
+                          </div>
+                    </div>
+                    <div class="course-content">
+                     	<h2 class="course-title"><a href="{{ course.get_absolute_url }}">{{ course }}</a></h2>
+                     	<div class="author">Преподователь <a href="index-3.html#">{{ course.metadata.teacher }}</a></div>
+               		</div>
+	               <div class="rating">
+		                     <ul>
+		                          <li>
+		                               <p><span><i class="fa fa-book"></i></span>{{ course.get_children.count }} уроков</p>
+		                         </li>
+		                         <li>
+		                               <p><span><i class="fa fa-comment-o" aria-hidden="true"></i></span>4</p>
+		                         </li>
+		                   </ul>
+		             </div>
+       			</div>
+       <!-- End Single Courses -->
+ 		</div>
+ 		{% endif %}
+        {% endfor %}
+ <!--Start small Post -->
+</div>
+<!-- End Populer Courses Single page -->
+</div>
+</div>
+<!-- End Populer Courses Container -->
+</div>
+</section>
+<!-- End Popular Courses Area -->
+
+<!-- Start Out Team Area V-3 -->
+<section class="our-team-area-v3 padding-t50">
+  <div class="container">
+       <div class="row">
+            <div class="col-md-12">
+                 <div class="area-headding text-center">
+                      <h2 class="section-title">Отзывы</h2>
+                </div>
+          </div>
+    </div>
+</div>
+</section>
+<!-- End Out Team Area V-3 -->
+<!-- Start testimonials-area V-3 -->
+<div class="testimonials-area-v3 ">
+  <div class="container">
+       <div class="row">
+            <div class="testimonials-list">
+                 <!-- Single Testimonial -->
+                {% for reviews in reviews %}
+                {% if forloop.counter > 1 %}
+                 <div class="single-testimonial">
+                      <div class="col-md-12 text-left ">
+                           <div class="testimonial-text">
+                                <p>{% show_page_content reviews 'main' %}</p>
+                               </div>
+                               <div class="author">
+                                     <a href="#" target="_blank">{{ reviews.metadata.teacher }}</a>
+                               </div>
+                         </div>
+                   </div>
+                {% endif %}
+                {% endfor %}
+                   <!-- /Single Testimonial -->
+           </div>
+     </div>
+</div>
+</div>
+<!-- End testimonials-area V-3 -->
+<!-- Start Latest Blog area  V3 -->
+<section class="latest-blog-area-v3 bg-gray padding45">
+     <div class="container">
+          <div class="row">
+               <div class="col-md-12">
+                    <div class="area-headding text-center">
+                         <h2 class="section-title">Блог</h2>
+                   </div>
+             </div>
+       </div>
+       <div class="row">
+         <div class="latest-blog-wrap">
+         {% with blog=blog_pages.0 %}
+              <div class="col-md-6">
+		                   <div class="single-blog big-post overlay-bg">
+		                        <div class="blog-thumb">
+		                             <img src="{% thumbnail blog.get_image 1014x600 crop="smart" %}" alt="{{ blog.title }}">
+		                       </div>
+		                       <div class="blog-info  text-left">
+		                             <h3 class="blog-title"><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h3>
+		                             <div class="blog-post-dlc">
+		                                  <ul>
+		                                       <li>
+		                                            <span class="date-time date-time-latest-big"><i class="fa fa-calendar"></i>{{ blog.updated }} </span>
+		                                      </li>
+		                                      <li><a href="{{ blog.get_absolute_url }}"><i class="fa fa-comments-o"></i></a>4</li>
+		                                </ul>
+		                          </div>
+		                    </div>
+		              </div>
+		        </div>
+		{% endwith %}
+        <div class="col-md-6">
+             <ul class="small-blog-list">
+                  <!-- Single Item -->
+                {% for blog in blog_pages %}
+                {% if forloop.counter > 1 %}
+                <li class="single-blog-post fix">
+                       <div class="blog-thumb">
+                            <img src="{% thumbnail blog.image 120x116 %}" alt="{{ blog.title }}">
+                      </div>
+                      <div class="blog-info  text-left">
+                            <h3 class="blog-title "><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h3>
+                            <div class="blog-post-dlc">
+                                 <ul>
+                                      <li>
+                                           <span class="date-time"><i class="fa fa-calendar"></i>{{ blog.updated }} </span>
+                                     </li>
+                                     <li><a href="{{ blog.get_absolute_url }}">2 <i class="fa fa-comment-o" aria-hidden="true"></i></a></li>
+                               </ul>
+                         </div>
+
+                   </div>
+             </li>
+             <!-- /Single Item -->
+            {% endif %}
+            {% endfor %}
+ <!-- /Single Item -->
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- End Latest Blog area  V3 -->
+{% endblock %}

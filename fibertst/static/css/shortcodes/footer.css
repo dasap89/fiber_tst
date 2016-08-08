@@ -1,0 +1,177 @@
+/*Footer Area*/
+/*Footer Top Area*/
+/*--------------------------------------  
+	7. Call To Action Area
+----------------------------------------*/
+.footer-top-area.bg-1 {
+    background: rgba(0, 0, 0, 0) url("../../img/others/footer-bg-1.jpg") no-repeat scroll center center / cover;
+}
+.footer-top-area.overlay-bg {
+    position: relative;
+}
+.footer-top-area.overlay-bg::before {
+    background: #202020 none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.95;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.footer-logo {
+    margin-bottom: 30px;
+}
+.newsletter-form {
+    margin-bottom: 50px;
+    text-align: center;
+}
+.newsletter-form form input[type="email"] {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border-color: -moz-use-text-color -moz-use-text-color #4b4b4b;
+    border-image: none;
+    border-style: none none solid;
+    border-width: medium medium 1px;
+    color: #999999;
+    padding: 10px 30px 10px 0px;
+    position: relative;
+    width: 80%;
+}
+.newsletter-form form input[type="textarea"] {
+
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border-color: -moz-use-text-color -moz-use-text-color #4b4b4b;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    color: #999999;
+    padding: 10px 30px 10px 0px;
+    position: relative;
+    width: 80%;
+    margin-top: 15px;
+    height: 90px;
+}
+.newsletter-form .estut-btn-v2 {
+    line-height: 42px;
+    position: relative;
+    right: -70px;
+    margin-top: 20px;
+}
+.newsletter-form span {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    color: #999;
+    line-height: 37px;
+    margin-left: -28px;
+    padding: 0 10px;
+    position: relative;
+}
+.widget-title {
+    color: #fff;
+    font-size: 18px;
+    line-height: 1;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: "RobotoRegular";
+}
+.footer-top-menu p,
+.footer-top-menu p a,
+.footer-top-menu a {
+    color: #999999;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1;
+}
+.footer-top-menu .mail {
+    color: #ed8127;
+}
+.footer-soc {
+    margin-top: 45px;
+}
+.footer-soc ul {
+    display: block;
+    text-align: center;
+
+}
+.footer-soc ul li {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: solid 1px #747474;
+    border-radius: 100px;
+    margin-right: 20px;
+}
+.footer-soc ul li a {
+    
+
+}
+.footer-soc ul li a i {
+    padding: 15px;
+    font-size: 30px;
+    color: #ed8127;
+    }
+.fo-course-container ul li a {
+    line-height: 1;
+    margin-left: 15px;
+    position: relative;
+}
+.fo-course-container ul li .date {
+    color: #5e5e5e;
+    font-size: 13px;
+    line-height: 24px;
+}
+.fo-course-container ul li a::before {
+    content: "";
+    font-family: fontawesome;
+    height: 14px;
+    left: -15px;
+    margin-top: -7px;
+    position: absolute;
+    top: 50%;
+    width: 10px;
+}
+a.user-name {
+    color: #fff;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.fo-twitter-feed-container ul li p {
+    line-height: 20px;
+}
+.fo-aboutus-container > p {
+    margin-bottom: 30px;
+}
+.blog-flickr {
+    margin-top: 10px;
+    overflow: hidden;
+}
+.blog-flickr ul {
+    margin-left: -2px;
+    overflow: hidden;
+}
+.blog-flickr ul li {
+    float: left;
+    width: 33.33%;
+}
+.blog-flickr ul li a {
+    display: block;
+    margin: 2px;
+    position: relative;
+}
+.blog-flickr ul li a img {
+    width: 100%;
+}
+.footer-bottom-area {
+    background: #1c1c1c none repeat scroll 0 0;
+    padding: 25px 0;
+}
+.copyright-wrap p {
+    color: #ed8127;
+    margin: 0;
+}

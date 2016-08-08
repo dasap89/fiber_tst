@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load staticfiles fiber_tags thumbnail %}
+
+{% block mains %}
+<!-- Start Small image blog Post area -->
+<div class="latest-blog-area blog-page bg-white-2 padding-b50">
+<div class="container">
+    <div class="row">
+        <!--Start Left Side -->
+        <div class="col-md-10 col-md-offset-1 left-side-wrap-v1 ">
+            <div class="blog-post-inner blog-details">
+                <!--Start Single Blog  -->
+                <div class="single-blog bg-white fix ">
+                    <div class="blog-thumb opasity-right-post">
+                        <img class="blog-img " src="{% thumbnail fiber_page.get_image 943x316 crop="smart" %}" alt="{{ fiber_page.title }}" />
+
+                        <div class="wrap-test">
+                            <div class="blog-info-wrap">
+                                <h3 class="blog-title">{{ fiber_page.title }}</h3>
+                                <p>{{ fiber_page.metadata.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" text-left">
+                        <div class="row p0">
+                        <!-- Single schedule-item  -->
+                            {% for p in fiber_page.get_children %}
+                                <div class="schedule-item">
+                                    <div class="col-md-10">
+                                        <a class="schedule-title" href="#">{{ p.title }}</a>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <span class="schedule-time">{{ p.metadata.description }}</span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <!--End Single schedule-item  -->
+                        </div>
+                    </div>
+                </div>
+                <!--End Single Blog  -->
+            </div>
+        </div>
+        <!--End Left Side -->
+    </div>
+</div>
+</div>
+<!-- End Small image blog Post area -->
+{% endblock %}

@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% load staticfiles fiber_tags thumbnail pinax_comments_tags form_helper %}
+
+{% block mains %}
+
+<!-- Start Small image blog Post area -->
+<div class="latest-blog-area blog-page bg-white-2 padding-b50">
+    <div class="container">
+        <div class="row">
+            <!--Start Left Side -->
+            <div class="col-md-10 col-md-offset-1 left-side-wrap-v1 ">
+                <div class="blog-post-inner blog-details">
+                    <!--Start Single Blog  -->
+                    <div class="single-blog bg-white fix ">
+                        <div class="blog-thumb opasity-right-post">
+                            <img class="blog-img " src="{% thumbnail fiber_page.get_image 943x316 crop="smart" %}" alt="{{ fiber_page.title }}" />
+
+                            <div class="wrap-test">
+                                <div class="blog-info-wrap">
+                                    <h3 class="blog-title">{{ fiber_page.title }}</h3>
+                                    <p>{% show_page_content 'intro' %}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- course-content  -->
+                        <div class=" text-left">
+                            <div class="row p0">
+                                <div class="course-content">
+                                    {% show_page_content 'main' %}
+                                </div>
+                                    <!--End course-content  -->
+                                    <div class="course-det p0 ">
+                                        <div class="course-wrap">
+                                            <h3>Детали курса</h3>
+                                        </div>
+                                        <!-- Single schedule-item  -->
+                                        <div class="schedule-item">
+                                            <div class="col-md-8 col-md-offset-2">
+                                                <div class="col-md-8">
+                                                    <h3 class="schedule-title" href="#">Начало</h3>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <span class="schedule-time">{% show_page_content 'start' %}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End Single schedule-item  -->
+                                        <!-- Single schedule-item  -->
+                                        <div class="schedule-item">
+                                            <div class="col-md-8 col-md-offset-2">
+                                                <div class="col-md-8">
+                                                    <h3 class="schedule-title" href="#">Продолжительность</h3>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <span class="schedule-time">{{ fiber_page.get_children.count }} уроков</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End Single schedule-item  -->
+                                        <!-- Single schedule-item  -->
+                                        <div class="schedule-item">
+                                            <div class="col-md-8 col-md-offset-2">
+                                                <div class="col-md-8">
+                                                    <h3 class="schedule-title" href="#">Цена </h3>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <span class="schedule-time">{{ fiber_page.metadata.description }} руб.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End Single schedule-item  -->
+                                        <!-- Single schedule-item  -->
+                                        <div class="schedule-item">
+                                            <div class="col-md-8 col-md-offset-2">
+                                                <div class="col-md-8">
+                                                    <h3 class="schedule-title" href="#">Преподователь </h3>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <span class="schedule-time">{{ fiber_page.metadata.teacher }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End Single schedule-item  -->
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--End Single Blog  -->
+                    </div>
+                </div>
+                <!--End Left Side -->
+            </div>
+        </div>
+    </div>
+    <!-- End Small image blog Post area -->
+
+    <section class="our-team-area-v3 record">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog-info-wrap">
+                        <h3 class="blog-title">Запись на курс “{{ fiber_page.title }}”</h3>
+                    </div>
+                    {% comment %}
+                      Вывод формы для комментариев:
+                    {% endcomment %}
+                    {% comment_form fiber_page as comment_form %}
+
+                    <div class="col-md-9 col-md-offset-1">
+                        <div class="application">
+                            <form action="">
+                                <div class="col-md-3"><span>Ф.И.О</span></div><div class="col-md-8"><input class="email-box" type="email" name="name" id="name"/></div>
+                                <div class="col-md-3"><span>Номер телефона</span></div><div class="col-md-8"><input class="email-box" type="email" name="phone" id="phone" /></div>
+                                <div class="col-md-3"><span>E-mail</span></div><div class="col-md-8"><input class="email-box" type="email" name="email" id="email" /></div>
+                                <div class="col-md-3"><span>Комментарий</span></div><div class="col-md-8"><input   type="textarea" name="email" id="text" />
+                                <span class="off">*После регистрации на Вашу почту прийдет письмо-подтверждение о записи на курс и реквизиты на оплату.    </span>
+                                <a class="estut-btn-v2 default-color active btn-right" href="#">Отправить</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <section>
+    <div class="contact-us-area padding45 bg-white-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="area-headding text-center">
+                    <h2 class="section-title">Отзывы о курсе “{{ fiber_page.title }}”</h2>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+
+                <div class="reviews clear">
+                    <!-- Start single-review -->
+                    {% comments fiber_page as comment_list %}
+
+                    {% for comment in comment_list %}
+                    <div class="single-review fix">
+                        <div class="col-md-3 p0">
+                            <div class="reviewer-info">
+                                <h4 class="reviewer-name">{{ comment.name }}</h4>
+                                <span class="date-time">{{ comment.submit_date|date:"d m Y" }}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <p class="reviewer-comment">{{ comment.comment }}</p>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
+    <div class="container">
+                        <div class="col-md-10 col-md-offset-1 padding45">
+                                                                    <div class="form-wrap">
+                                                                    <h2>  Напишите свой
+    отзыв о курсе</h2>
+                                <form action="{% comment_target fiber_page %}" method="POST">
+                                    {% csrf_token %}
+                                    {% comment %}
+                                    Вывод формы для комментариев:
+                                    {% endcomment %}
+                                    {% comment_form fiber_page as comment_form %}
+                                    <div class="form-inner">
+                                        <div class="single-input">
+                                             {{ comment_form.comment|add_placeholder:"Введите текст..." }}
+                                        </div>
+                                        <div class="single-input">
+                                            {{ comment_form.name|add_placeholder:"Ваше имя" }}
+                                        </div>
+                                        <div class="single-input">
+                                             {{ comment_form.email|add_placeholder:"Ваш E-mail" }}
+                                        </div>
+
+                                        <input type="submit" value="Опубликовать" class="estut-btn active submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        </div>
+                                                                        </div>
+    </section>
+
+                    <!-- End single-review -->
+
+{% endblock %}

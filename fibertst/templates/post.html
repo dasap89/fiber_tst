@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% load staticfiles fiber_tags thumbnail pinax_comments_tags form_helper %}
+
+{% block mains %}
+
+<!-- Start Small image blog Post area -->
+<div class="latest-blog-area blog-page bg-white-2">
+	<div class="container">
+		<div class="row">
+			<!--Start Left Side -->
+			<div class="col-md-8 left-side-wrap-v1 ">
+				<div class="blog-post-inner blog-details">
+					<!--Start Single Blog  -->
+					<div class="single-blog bg-white fix ">
+						<div class="blog-thumb opasity-right-post">
+							<img class="blog-img " src="{% thumbnail fiber_page.get_image 943x316 crop="smart" %}" alt="{{ fiber_page.title }}" />
+
+							<div class="wrap-test">
+							<div class="blog-info-wrap">
+							<h3 class="blog-title">{{ fiber_page.title }}</h3>
+							<div class="blog-post-dlc">
+								<ul>
+									<li>
+										<span class="date-time"><i class="fa fa-calendar"></i>{{ fiber_page.updated }}</span>
+									</li>
+									<li><i class="fa fa-comments-o"></i>2</li>
+								</ul>
+							</div>
+							</div>
+							</div>
+						</div>
+
+						<div class="blog-info text-left">
+
+							<div class="blog-content">
+								{% show_page_content 'main' %}
+							</div>
+
+							<!-- End Blog content -->
+						</div>
+					</div>
+					<!--End Single Blog  -->
+                    {% comment %}
+                      Вывод формы для комментариев:
+                    {% endcomment %}
+                    {% comment_form fiber_page as comment_form %}
+					<!-- Start Review Area -->
+					<div class="review-area">
+						<div class="post-title-v3">
+							<h2 class="post-title">Комментарии (1)</h2>
+						</div>
+						<div class="review-wrap">
+							<div class="review-inner">
+								<!-- Start Single Review -->
+                                {% comments fiber_page as comment_list %}
+
+                                {% for comment in comment_list %}
+								<div class="single-review fix">
+									<div class="col-md-3 p0">
+									<div class="reviewer-info">
+										 <h4 class="reviewer-name">{{ comment.name }}</h4>
+                                        <span class="date-time">{{ comment.submit_date|date:"d m Y" }}</span>
+									</div>
+									</div>
+									<div class="col-md-9">
+									<p class="reviewer-comment">{{ comment.comment }}</p>
+									<a href="blog-details.html#" class="reply-btn"><i class="fa fa-share"></i> Ответить</a>
+									</div>
+								</div>
+                                {% endfor %}
+								<!-- End Single Review -->
+							</div>
+						</div>
+					</div>
+					<!-- End Review Area -->
+					<!-- Start Comment Form area -->
+					<div class="comment-form-area margin-b45">
+						<div class="post-title-v3">
+							<h2 class="post-title">Оставить комментарий</h2>
+						</div>
+
+						<div class="form-wrap">
+							<form action="{% comment_target fiber_page %}" method="POST">
+                                {% csrf_token %}
+                                    {% comment %}
+                                    Вывод формы для комментариев:
+                                    {% endcomment %}
+                                    {% comment_form fiber_page as comment_form %}
+								<div class="form-inner">
+                                    <div class="single-input">
+										{{ comment_form.comment|add_placeholder:"Введите текст..." }}
+									</div>
+									<div class="single-input">
+										{{ comment_form.name|add_placeholder:"Ваше имя" }}
+									</div>
+									<div class="single-input">
+										{{ comment_form.email|add_placeholder:"Ваш E-mail" }}
+									</div>
+
+									<input type="submit" value="Опубликовать" class="estut-btn active submit">
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- End Comment Form area -->
+				</div>
+			</div>
+			<!--End Left Side -->
+			<!--Start Right Side -->
+			<div class="col-md-4 margin-b45">
+							<h2 class="post-title">Также читайте:</h2>
+			</div>
+			<!--End Right Side -->
+			<!--Start Right Side -->
+            {% for blog in fiber_page.get_children %}
+                <div class="col-md-4 margin-b45">
+                    <div class="single-blog big-post overlay-bg ">
+                        <div class="blog-thumb opasity-right-post">
+                            <img src="{% thumbnail blog.image 358x178 %}" alt="{{ blog.title }}">
+                        </div>
+                        <div class="blog-info  blog-right-wrap">
+                            <h3 class="blog-title"><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h3>
+                            <div class="blog-post-dlc">
+                                <ul>
+                                    <li>
+                                        <span class="date-time date-time-latest-big"><i class="fa fa-calendar"></i>{{ blog.updated }} </span>
+                                    </li>
+                                    <li><a href="{{ blog.get_absolute_url }}"><i class="fa fa-comments-o"></i></a>4</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+			<!--End Right Side -->
+		</div>
+	</div>
+</div>
+<!-- End Small image blog Post area -->
+
+{% endblock %}

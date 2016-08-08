@@ -1,0 +1,313 @@
+<!doctype html>
+{% load staticfiles fiber_tags %}
+<html class="no-js" lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>{% block title %}{{ fiber_page.title }}{% endblock %}</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- favicon
+============================================ -->		
+<link rel="shortcut icon" type="image/x-icon" href="{% static "img/favicon.ico" %}" >
+
+<!-- Google Fonts
+============================================ -->		
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500italic,500,400italic,700italic,900,100,300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,900' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{% static "css/fonts.css" %}" >
+<!-- Bootstrap CSS
+============================================ -->		
+<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}" >
+<!-- Bootstrap CSS
+============================================ -->
+<link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}" >
+<!-- owl.carousel CSS
+============================================ -->
+<link rel="stylesheet" href="{% static "css/owl.carousel.css" %}" >
+<link rel="stylesheet" href="{% static "css/owl.theme.css" %}" >
+<link rel="stylesheet" href="{% static "css/owl.transitions.css" %}" >
+<!-- nivo slider CSS
+============================================ -->
+<link rel="stylesheet" href="{% static "lib/css/nivo-slider.css" %}" />
+<link rel="stylesheet" href="{% static "lib/css/preview.css" %}" />
+<!-- jquery-ui CSS
+============================================ -->
+<link rel="stylesheet" href="{% static "css/jquery-ui.css" %}" >
+<!-- meanmenu CSS
+============================================ -->
+<link rel="stylesheet" href="{% static "css/meanmenu.min.css" %}" >
+<!-- animate CSS
+============================================ -->
+<link rel="stylesheet" href="{% static "css/animate.css" %}" >
+<!-- normalize CSS
+============================================ -->
+<link rel="stylesheet" href="{% static "css/normalize.css" %}" >
+<!-- main CSS
+============================================ -->
+<link rel="stylesheet" href="{% static "css/main.css" %}" >
+<!-- shortcodes CSS
+============================================ -->
+<link rel="stylesheet" href="{% static "css/shortcodes/shortcodes.css" %}" >
+<!-- style CSS
+============================================ -->
+<link rel="stylesheet" href="{% static "style.css" %}" >
+<!-- Custom - Theme Color CSS 
+============================================ -->
+<link rel="stylesheet" href="{% static "css/color-one.css" %}" >
+<link rel="stylesheet" href="{% static "css/color-three.css" %}" >
+<!-- responsive CSS
+============================================ -->
+<link rel="stylesheet" href="{% static "css/responsive.css" %}" >
+<!-- modernizr JS
+============================================ -->			
+<script src="{% static "js/vendor/modernizr-2.8.3.min.js" %}" ></script>
+</head>
+<body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <![endif]-->
+
+
+            <div class="wrapper">
+            	<!-- Start Header Area -->
+            	<header id="header" class="solid-bg-header clear">
+            		<div class="header-v1">
+            			<!-- Start Header Top -->
+            			<div class="header-top clear line">
+            				<div class="container">
+            					<div class="row">
+            						<div class="col-md-7 col-xs-4 p0">
+            							<div class="header-top-left header-top-info">
+            								<p><a href="index-3.html#"><i class="fa fa-lock"></i>Вход</a></p>
+            								<p><a class="phone-top hidden-sm hidden-xs" href="tel:+3211234567"><i class="fa fa-phone"></i>+7 (978) 729-78-01</a></p>
+            								<p><a class=" hidden-sm hidden-xs" href="mailto:admib@bootexperts.com"><i class="fa fa-envelope"></i>ideas.crimea@yandex.ru</a></p>  
+            							</div>
+            						</div>
+            						<div class="col-md-5 col-xs-8 p0">
+            							<div class="header-top-right pull-right">
+            								<ul>
+            									<li class="search-bar">
+            										<div class="search-form">
+            											<form method="get" action="index-3.html#">
+            												<button type="submit"><i class="fa fa-search"></i></button>
+            												<input type="text" placeholder="Поиск" id="search" name="search">
+            											</form>
+            										</div>
+            									</li>
+
+            								</ul>
+            							</div>
+            						</div>
+            					</div>
+            				</div>
+            			</div>
+            			<!-- End Header Top -->
+            			<!-- Start Header Bottom -->
+            			<div class="header-bottom" id="sticky-div">
+            				<div class="container">
+            					<div class="row  hidden-sm hidden-xs">
+            						<!-- Start Logo -->
+            						<div class="col-md-3">
+            							<div class="header-logo">
+            								<a href="/"><img src="{% static "img/logo/4.png" %}" alt="main logo" /></a>
+            							</div>
+            						</div>
+            						<!-- End Logo -->
+            						<!-- Start Main Menu -->
+            						<div class="col-md-9">
+            							<div class="menu-wrap pull-right">
+            								<nav class="primary-menu">
+            									{% show_menu "mainmenu" 1 1 %}
+            								</nav>
+            							</div>
+            						</div>
+            						<!-- End Main Menu -->
+            					</div>
+            					<!-- Start Mobile Menu -->
+            					<div class="row">
+            						<div class="col-sm-3 hidden-md hidden-lg">
+            							<div class="mobile-logo">
+            								<a href="/"><img src="{% static "img/logo/4.png" %}" alt="main logo" /></a>
+            							</div>
+            						</div>
+            						<div class="col-sm-9 hidden-md hidden-lg">
+            							<!-- Main Menu End -->
+            							<div class='mobile-menu-area'>
+            								<nav id="mobile-menu">
+            									{% show_menu "mainmenu" 1 1 %}
+            								</nav>
+            							</div>
+            							<!-- Main Menu End -->
+            						</div>
+            					</div>	
+            					<!-- End Mobile Menu -->
+            				</div>
+            			</div>
+            			<!-- End Header Bottom -->
+            		</div>
+            	</header>
+            	<!-- End Header Area -->	
+            	<!--Start Page Content -->
+            	<div class="page-content">
+            	<div class="breadcrumbs about">
+            			<div class="container">
+            				<div class="row">
+            					<div class="col-md-12">
+            						<a href="index.html">Главная</a><span class="separator">/</span><a href="blog-grid.html">О школе</a><span class="separator">/</span>
+            					</div>
+            				</div>
+            			</div>
+            		</div>
+
+            		{% block mains %}
+					{% endblock %}
+            			
+            		</div>
+            		<!-- Start  Footer  Area -->	
+<footer id="footer-area">
+     <!-- Start Footer Top Area -->	
+     <div class="footer-top-area bg-1 overlay-bg padding50">
+          <div class="container">
+               <div class="row">
+                    <div class="newsletter">
+                         <div class="col-md-6 col-md-offset-3 text-center">
+                              <div class="footer-logo">
+                                   <a href="/"><img src="{% static "img/logo/4.png" %}" alt="footer Logo" /></a>
+                             </div>
+
+                       </div>
+                 </div>
+           </div>
+           <div class="row">
+              <div class="col-md-4 col-sm-6">
+                   <div class="footer-top-menu">
+                        <h3 class="widget-title">Контакты</h3>
+                        <div class="fo-aboutus-container">
+
+                             <address>
+                                  <p>Тел.:</p>
+                                  <p>+7 (978) 729-78-01</p>
+                                  <p>+7 978 7434898</p>
+                                  <p>+7 978 7297802</p>
+                                  <p>E-mail:</p>
+                                  <p>ideas.crimea@yandex.ru</p>
+                                  <p>ideascrimea@ukr.net</p>
+                            </address>
+                      </div>
+                </div>
+          </div>
+          <div class="col-md-4 col-sm-6">
+             <div class="footer-top-menu">
+                  <h3 class="widget-title">Присоиденяйтесь</h3>
+                  <div class="fo-course-container">
+                       <p>Студия дизайна інтерьера</p>
+                       <p>Interior Design Ideas:</p>
+                       <p><a class="mail" href="#">www.design-studio-ideas.ru</a></p>
+                 </div>
+                 <div class="footer-soc">
+                       <ul>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-odnoklassniki" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                      </ul>
+                </div>
+          </div>
+    </div>
+    <div class="col-md-4 col-sm-6">
+       <div class="footer-top-menu">
+            <h3 class="widget-title">Напишите нам</h3>
+            <div class="fo-twitter-feed-container">
+                 <div class="newsletter-form">
+                      <form action="index-3.html#" method="get">
+                           <input class="email-box" type="email" name="email" id="email" placeholder="Ваше Имя"/>
+                           <span class="icon"><i class="fa fa-child" aria-hidden="true"></i></span>
+                           <input class="email-box" type="email" name="email" id="email" placeholder="Ваш E-mail "/>
+                           <span class="icon"><i class="fa fa-envelope-o"></i></span>
+                           <input   type="textarea" name="email" id="text" placeholder="Введите сообщение..."/>
+                           <a class="estut-btn-v2 default-color active" href="index-3.html#">Подробнее</a>
+                     </form>
+               </div>
+         </div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+<!-- End Footer Top Area -->	
+<!-- Start Footer Bottom Area -->	
+<div class="footer-bottom-area">
+    <div class="container">
+         <div class="row">
+              <div class="col-md-12 text-center">
+                   <div class="copyright-wrap text-center">
+                        <p>Сделано Марией Кравчук. 2016</p>
+                  </div>
+            </div>
+      </div>
+</div>
+</div>
+<!-- End Footer Bottom Area -->	
+</footer>
+
+            		</div>
+            		<!-- End wrapper -->
+
+
+		<!-- jquery
+		============================================ -->		
+		<script src="{% static "js/vendor/jquery-1.11.3.min.js" %}" ></script>
+		<!-- mixitup JS
+		============================================ -->		
+		<script src="{% static "js/jquery.mixitup.js" %}" ></script>		
+		<!-- bootstrap JS
+		============================================ -->		
+		<script src="{% static "js/bootstrap.min.js" %}" ></script>
+		<script src="{% static "js/bootstrap-select.min.js" %}" ></script>
+		<!-- wow JS
+		============================================ -->		
+		<script src="{% static "js/wow.min.js" %}" ></script>
+		<!-- price-slider JS
+		============================================ -->		
+		<script src="{% static "js/jquery-price-slider.js" %}" ></script>		
+		<!-- meanmenu JS
+		============================================ -->		
+		<script src="{% static "js/jquery.meanmenu.js" %}" ></script>
+		<!-- owl.carousel JS
+		============================================ -->		
+		<script src="{% static "js/owl.carousel.min.js" %}" ></script>
+		<!-- counterup JS
+		============================================ -->		
+		<script src="{% static "js/jquery.counterup.min.js" %}" ></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+		<!-- sliphover JS
+		============================================ -->		
+		<script src="{% static "js/jquery.sliphover.min.js" %}" ></script>
+		<!-- Nivo slider js
+		============================================ --> 		
+		<script src="{% static "lib/js/jquery.nivo.slider.js" %}" ></script>
+		<script src="{% static "lib/home.js" %}" ></script>
+		<!-- scrollUp JS
+		============================================ -->		
+		<script src="{% static "js/jquery.scrollUp.min.js" %}" ></script>
+        <!-- bxslider JS
+        ============================================ -->		
+        <script src="{% static "js/jquery.bxslider.min.js" %}" ></script>
+		<!-- masonry JS
+		============================================ -->		
+		<script src="{% static "js/masonry.pkgd.min.js" %}" ></script>
+		<!-- plugins JS
+		============================================ -->		
+		<script src="{% static "js/plugins.js" %}" ></script>
+        <!-- Background Video JS
+        ============================================ -->		
+        <script src="{% static "js/video-bg.js" %}" ></script>
+		<!-- TOP Menu Stick
+		============================================ -->	
+		<!-- main JS
+		============================================ -->		
+		<script src="{% static "js/main.js" %}" ></script>
+	</body>
+	</html>

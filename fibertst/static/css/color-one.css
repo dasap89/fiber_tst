@@ -1,0 +1,72 @@
+.solid-bg-header,
+.estut-btn.active,
+.estut-btn:hover,
+.intro-courses-container .estut-btn,
+.brand-logo-area.solid-bg-1,
+.quick-add-to-cart .single_add_to_cart_button,
+.call-to-action .estut-btn,
+#scrollUp {
+    background: #1c1c1c none repeat scroll 0 0;
+}
+.total-amount span {
+    color: #03a9f4;
+}
+#scrollUp {
+    background: #ed8127 none repeat scroll 0 0;
+}
+.header-top,
+.action-cart a,
+.estut-dropdown > li:hover > a,
+.estut-btn.active:hover,
+.intro-courses-container .estut-btn:hover,
+.quick-add-to-cart .single_add_to_cart_button:hover,
+.call-to-action .estut-btn:hover,
+ {
+    background: #252525 none repeat scroll 0 0;
+    border-bottom: solid 1px #747474;
+}
+.cart-form,
+.estut-dropdown {
+    border-bottom: 2px solid #039be5;
+}
+.primary-menu > ul > li:hover > a,
+.estut-dropdown li a:hover,
+.course-content .course-title a:hover {
+    color: #ed8127 !important;
+}
+.action-cart a:hover {
+    background: #ed8127 none repeat scroll 0 0;
+}
+.header-top-info > p,
+.header-top-right ul > li,
+.header-top-info > p a,
+.search-form button,
+.cart-btn a,
+.cart-single-product-title p,
+.cart-single-product-del a {
+    color: #747474;
+}
+.search-form input[placeholder]{
+    color: #bbdefb !important;
+}
+::selection {
+    background: #03A9F4;
+	color:#fff;
+}
+::-moz-selection {
+    background: #03A9F4;
+	color:#fff;
+}
+a{
+	color:#039BE5
+}
+.author a:hover {
+    color: #03A9F4;
+}
+a:hover {
+    color: #03A9F4;
+    text-decoration: none;
+}
+.line {
+    border-bottom: solid 1px #747474
+}

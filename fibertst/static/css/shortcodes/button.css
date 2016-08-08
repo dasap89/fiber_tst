@@ -1,0 +1,96 @@
+.estut-btn {
+    background: #fff none repeat scroll 0 0;
+    color: #212121;
+    display: inline-block;
+    margin: auto 10px;
+    padding: 20px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.estut-btn.active,
+.estut-btn:hover,
+.intro-courses-container .estut-btn,
+.call-to-action .estut-btn {
+    color: #fff;
+}
+.intro-courses-container .estut-btn,
+.call-to-action .estut-btn {
+    padding: 15px 30px;
+    margin: 25px 0 0;
+}
+/* Home V2 */
+
+.slide-v2 .estut-btn {
+    background: #fff none repeat scroll 0 0;
+    box-shadow: 0px 0px 6px 0px #928885;
+    color: #212121;
+    display: inline-block;
+    margin: auto 10px;
+    padding: 0px 30px;
+    height: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.slide-v2 .estut-btn:hover,
+.slide-v2 .estut-btn.active {
+    background: #ed8127 none repeat scroll 0 0;
+    color: #ffffff;
+}
+.estut-btn.active:hover {
+    background: #ed8127 none repeat scroll 0 0;
+}
+.search-form-3 .estut-btn-v2 {
+    background: #ffffff none repeat scroll 0 0;
+    border: medium none;
+    color: #212121;
+    float: right;
+    height: 42px;
+    margin-top: 0;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+    width: 15%;
+}
+.search-form-3 .estut-btn-v2:hover {
+    background: #F3C020;
+    color: #fff;
+}
+/*Home v2 */
+
+.team-area.v1 .estut-btn-v2 {
+    margin-top: 25px;
+}
+.estut-btn-v2 {
+    display: inline-block;
+    height: 42px;
+    line-height: 42px;
+    margin-left: 3px;
+    padding: 0 30px;
+    text-transform: uppercase;
+    color: #212121;
+}
+.estut-btn-v2.color-v2 {
+    background: #f3d474 none repeat scroll 0 0;
+    color: #ffffff;
+}
+.estut-btn-v2.color-v2:hover {
+    background: #f3c020 none repeat scroll 0 0;
+    color: #ffffff;
+}
+.estut-btn-v2.default-color {
+    background: #ffffff none repeat scroll 0 0;
+}
+.estut-btn-v2.default-color:hover {
+    background: #f3c020 none repeat scroll 0 0;
+    color: #ffffff;
+}
+/* Home v3*/
+
+.estut-btn:hover,
+.estut-btn.active {
+    background: #ed8127 none repeat scroll 0 0;
+    color: #ffffff;
+}
+.estut-btn.active:hover {
+    background: #e17a24 none repeat scroll 0 0;
+}

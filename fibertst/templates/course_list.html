@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% load staticfiles fiber_tags thumbnail %}
+
+{% block mains %}
+
+<div class="col-md-12">
+<div class="area-headding text-center">
+	<h2 class="section-title">{{ fiber_page.title }}</h2>
+	<p class="sub-title">{{ fiber_page.metadata.description }}</p>
+</div>
+</div>
+<!--Start Blog Post Area -->
+<div class="latest-blog-area blog-page padding50 bg-white-2">
+<div class="container">
+	<div class="row">
+		<div class="blog-post-inner">
+            {% for course in fiber_page.get_children %}
+                <div class="col-md-4 ">
+                    <!-- Start Single Courses -->
+                    <div class="single-course">
+                        <div class="course-thumb">
+                            <img src="{% thumbnail course.get_image 360x300 crop="smart" %}" alt="{{ course.title }}" />
+                            <div class="price-sticker">
+                                <span><i class="fa fa-rub" aria-hidden="true"></i>{{ course.metadata.description }}</span>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <h2 class="course-title"><a href="{{ course.get_absolute_url }}">{{ course.title }}</a></h2>
+                            <div class="author">Преподователь <a href="{{ course.get_absolute_url }}">{{ course.metadata.teacher }}</a></div>
+                        </div>
+                        <div class="rating">
+                            <ul>
+                                <li>
+                                    <p><span><i class="fa fa-book"></i></span>{{ course.get_children.count }} уроков</p>
+                                </li>
+                                <li>
+                                    <p><span><i class="fa fa-comment-o" aria-hidden="true"></i></span>4</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Single Courses -->
+                </div>
+            {% endfor %}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<div class="pagination">
+				<ul>
+					<li><a class="active" href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<!--End Blog Post Area -->
+</div>
+            	<!--Start Page Content -->
+            	<section class="our-team-area-v3 padding-t50">
+            		<div class="container">
+            			<div class="row">
+            				<div class="col-md-12">
+            					<div class="area-headding text-center">
+            						<h2 class="section-title">Как записаться на курс?</h2>
+            					</div>
+            				</div>
+            				<div class="col-md-12 enroll">
+            					<div class="col-md-9">
+            						<div class="enroll-text">
+            							{% show_page_content 'reg-course' %}
+            						</div>
+            					</div>
+            					<div class="col-md-3 p0">
+            						{% show_page_content 'reg-course-img' %}
+            					</div>
+            				</div>
+            				<div class="col-md-12">
+            					<div class="application">
+            						<h4 >Или же подайте зявку на обучение прямо сейчас:</h4>
+            						<p>- по телефону +7 (978) 729-78-01; </p>
+            						<p>- по электронной почте ideas.crimea@yandex.ru </p>
+            						<p>- через форму обратной связи </p>
+            						<form action="">
+            							
+            							<div class="col-md-4"><span>Ваше имя</span></div><div class="col-md-8"><input class="email-box" type="email" name="email" id="email"/></div>
+            							<div class="col-md-4"><span>Ваш E-mail</span></div><div class="col-md-8"><input class="email-box" type="email" name="email" id="email" /></div>
+            							<div class="col-md-4"><span>Ваш телефон</span></div><div class="col-md-8"><input class="email-box" type="email" name="email" id="email" /></div>
+            							<div class="col-md-4"><span>Название курса</span></div>
+            							<div class="col-md-8">
+            								<select>
+            									<option disabled">- Выбрать из списка -</option>
+            									<option value="">Saab</option>
+            									<option value="">Opel</option>
+            									<option value="">Audi</option>
+            								</select>
+            							</div>
+            							<div class="col-md-4"><span>Комментарий</span></div><div class="col-md-8"><input   type="textarea" name="email" id="text" />
+<a class="estut-btn-v2 default-color active btn-right" href="#">Отправить</a>
+            							</div>
+            							
+            						</form>
+            					</div>
+            				</div>
+            			</div>
+            			            			<div class="row">
+            				<div class="col-md-12 padding-t50">
+            					<div class="area-headding text-center">
+            						<h2 class="section-title">Оплата</h2>
+            					</div>
+            				</div>
+            				<div class="col-md-12 enroll margin-b45">
+            					<div class="col-md-9">
+            						<div class="enroll-text">
+            							{% show_page_content 'payment' %}
+            						</div>
+            					</div>
+            					<div class="col-md-3 p0">
+            						{% show_page_content 'payment-img' %}
+            					</div>
+            				</div>
+            		</div>
+            	</section>
+
+{% endblock %}

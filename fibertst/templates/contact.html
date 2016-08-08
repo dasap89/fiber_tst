@@ -1,0 +1,65 @@
+{% extends "base_c.html" %}
+{% load staticfiles fiber_tags thumbnail %}
+
+{% block mains %}
+
+<!-- Start Contact Us area -->
+<div class="contact-us-area padding45 bg-white-2">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="area-headding text-center">
+					<h2 class="section-title">{% show_page_content 'long-title'  %}</h2>
+					<p class="sub-title">{{ fiber_page.metadata.description }}</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="contact-info-list text-center clear">
+					<div class="contact-info-inner clear">
+						<!-- Start Single info -->
+						<div class="single-info location bg-white text-center">
+							<div class="info-icon">
+								<i class="fa fa-map-marker" aria-hidden="true"></i>
+							</div>
+							<div class="info-dis">
+								<h3 class="con-in-title">Адрес</h3>
+								<address>
+									{% show_page_content 'address'  %}
+								</address>
+							</div>
+						</div>
+						<!-- End Single info -->
+						<!-- Start Single info -->
+						<div class="single-info phone-no bg-white  text-center">
+							<div class="info-icon">
+								<i class="fa fa-phone" aria-hidden="true"></i>
+							</div>
+							<div class="info-dis">
+								<h3 class="con-in-title">Телефон</h3>
+								{% show_page_content 'phone'  %}
+							</div>
+						</div>
+						<!-- End Single info -->
+						<!-- Start Single info -->
+						<div class="single-info email bg-white  text-center">
+							<div class="info-icon">
+								<i class="fa fa-envelope-o" aria-hidden="true"></i>
+							</div>
+							<div class="info-dis">
+								<h3 class="con-in-title">E-mail</h3>
+								{% show_page_content 'email'  %}
+							</div>
+						</div>
+						<!-- End Single info -->
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<!-- End Contact Us area -->
+
+{% endblock %}

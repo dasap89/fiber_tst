@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load staticfiles fiber_tags thumbnail %}
+
+{% block mains %}
+<!--Start Our school area -->
+<section class="our-school-area">
+<div class="container">
+	<div class="row">
+		 <div class="col-md-12">
+<div class="area-headding text-center">
+<h2 class="section-title">{{ fiber_page.metadata.description }}</h2>
+</div>
+
+</div>
+		<div class="our-school-inner">
+			<div class="col-md-8">
+				<div class="school-info ">
+					{% show_page_content 'main' %}
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="school-pic">
+					<img src="{% thumbnail fiber_page.get_image 360x232 crop="smart" %}" alt="school image">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+<!--End Our school area -->
+<!--Start Full Width Video area -->
+<section class="full-width-video-area padding45 bg-gray">
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="area-headding text-center">
+				<h2 class="section-title">Почему стоит учиться именно с нами?</h2>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+	<!--Start Item -->
+    {% for p in fiber_page.get_children %}
+        <div class="col-md-6 margin-b45">
+			<div class="col-md-2">
+			<div class="info-icon">
+						{% show_page_content p 'fa'  %}
+					</div>
+					</div>
+			<div class="col-md-10">
+				<h2 class="title-item">{{ p.title }}</h2>
+				{% show_page_content p 'main'  %}
+			</div>
+		</div>
+    {% endfor %}
+		<!--End Item  -->
+	</div>
+</div>
+</section>
+
+
+<!-- Start Out Team Area V-3 -->
+<section class="our-team-area-v3 padding45">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="area-headding text-center">
+					<h2 class="section-title">Встречай преподователей школы</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container clear">
+		<!-- Single Member -->
+		{% get_child_pages 'prepodavateli' 'teachers' %}
+		<!-- Single Member -->
+		{% for teacher in teachers %}
+            {% if forloop.counter > 1 %}
+				<div class="col-md-3">
+				<div class="single-member">
+					<div class="mb-image">
+						<img src="{% thumbnail teacher.get_image 360x300 crop="smart" %}" alt="{{ teacher.title }}" />
+
+						<ul class="member-social-links">
+							<li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a></li>
+						</ul>
+					</div>
+					<div class="mb-info">
+						<h3><a href="#">{{ teacher.title }}</a></h3>
+						<h5>{{ teacher.metadata.description }}</h5>
+					</div>
+				</div>
+				</div>
+				<!-- /Single Member -->
+		{% endif %}
+        	{% endfor %}
+	</div>
+</section>
+<!-- End Out Team Area V-3 -->
+{% endblock %}
