@@ -104,10 +104,12 @@
                     <div class="blog-info-wrap">
                         <h3 class="blog-title">Запись на курс “{{ fiber_page.title }}”</h3>
                     </div>
+
                     {% comment %}
                       Вывод формы для комментариев:
                     {% endcomment %}
                     {% comment_form fiber_page as comment_form %}
+
 
                     <div class="col-md-9 col-md-offset-1">
                         <div class="application">
@@ -142,6 +144,7 @@
 
                 <div class="reviews clear">
                     <!-- Start single-review -->
+
                     {% comments fiber_page as comment_list %}
 
                     {% for comment in comment_list %}
@@ -158,6 +161,7 @@
                         </div>
                     </div>
                     {% endfor %}
+
                     </div>
                     </div>
                     </div>
@@ -168,6 +172,7 @@
                                                                     <div class="form-wrap">
                                                                     <h2>  Напишите свой
     отзыв о курсе</h2>
+                                
                                 <form action="{% comment_target fiber_page %}" method="POST">
                                     {% csrf_token %}
                                     {% comment %}
@@ -188,6 +193,7 @@
                                         <input type="submit" value="Опубликовать" class="estut-btn active submit">
                                     </div>
                                 </form>
+                                
                             </div>
                         </div>
                         </div>
