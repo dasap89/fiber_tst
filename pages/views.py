@@ -7,7 +7,7 @@ class IndexPage(FiberTemplateView):
         data = super(IndexPage, self).get_context_data()
         data['blog_pages'] = Page.objects.filter(parent__url='blog').order_by('-id')[:4]
         data['cources'] = Page.objects.filter(parent__url='cources').order_by('-id')[:4]
-        
+        data['reviews'] = Page.objects.filter( parent__url='reviews' ).order_by( '-id' )[:8]
         return data
 
 
