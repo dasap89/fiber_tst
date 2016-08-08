@@ -39,18 +39,18 @@
     <div class="col-md-10 col-md-offset-1">
        <div class="reviews clear">
         <!-- Start single-review -->
-           {% comments fiber_page as comment_list %}
+           	{% comments fiber_page as comment_list %}
 
-                                {% for comment in comment_list %}
+                {% for comment in comment_list %}
         <div class="single-review fix">
           <div class="col-md-3 p0">
             <div class="reviewer-info">
-              <h4 class="reviewer-name">{{ comment.name }}</h4>
-              <span class="date-time">{{ comment.submit_date|date:"d m Y" }}</span>
+		          <h4 class="reviewer-name">{{ comment.name }}</h4>
+		          <span class="date-time">{{ comment.submit_date|date:"d m Y" }}</span>
             </div>
           </div>
           <div class="col-md-9">
-            <p class="reviewer-comment">{{ comment.comment }}</p>
+            	<p class="reviewer-comment">{{ comment.comment }}</p>
 
           </div>
         </div>
@@ -65,18 +65,18 @@
     <div class="col-md-10 col-md-offset-1">
        <div class="reviews clear">
         <!-- Start single-review -->
-           {% comments fiber_page as comment_list %}
+           	{% comments fiber_page as comment_list %}
 
-                                {% for comment in comment_list %}
+            {% for comment in comment_list %}
         <div class="single-review fix">
           <div class="col-md-3 p0">
             <div class="reviewer-info">
-              <h4 class="reviewer-name">{{ comment.name }}</h4>
-              <span class="date-time">{{ comment.submit_date|date:"d m Y" }}</span>
+	              <h4 class="reviewer-name">{{ comment.name }}</h4>
+	              <span class="date-time">{{ comment.submit_date|date:"d m Y" }}</span>
             </div>
           </div>
           <div class="col-md-9">
-            <p class="reviewer-comment">{{ comment.comment }}</p>
+            	<p class="reviewer-comment">{{ comment.comment }}</p>
 
           </div>
         </div>
@@ -112,24 +112,24 @@
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <form action="{% comment_target fiber_page %}" method="POST">
-            {% csrf_token %}
-                {% comment %}
-                Вывод формы для комментариев:
-                {% endcomment %}
-                {% comment_form fiber_page as comment_form %}
+            	{% csrf_token %}
+                	{% comment %}
+                	Вывод формы для комментариев:
+                	{% endcomment %}
+                	{% comment_form fiber_page as comment_form %}
           <div class="col-md-2">
            <span>Напишите свой отзыв</span> 
          </div>
          <div class="col-md-10">
           <div class="form-inner">
             <div class="single-input">
-              {{ comment_form.comment|add_placeholder:"Введите текст..." }}
+              	{{ comment_form.comment|add_placeholder:"Введите текст..." }}
             </div>
             <div class="single-input">
-              {{ comment_form.name|add_placeholder:"Ваше имя" }}
+              	{{ comment_form.name|add_placeholder:"Ваше имя" }}
             </div>
             <div class="single-input">
-              {{ comment_form.email|add_placeholder:"Ваш E-mail" }}
+              	{{ comment_form.email|add_placeholder:"Ваш E-mail" }}
             </div>
 
             <input type="submit" value="Опубликовать" class="estut-btn active submit">
