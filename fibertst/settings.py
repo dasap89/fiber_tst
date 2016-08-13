@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import django.conf.global_settings as DEFAULT_SETTINGS
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -38,13 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'fibertst',
     'mptt',
-    #'compressor',
-    'pages',
-    'fiber',
+    'compressor',
     'easy_thumbnails',
-    'pinax.comments',
+    'fiber',
+    #'pinax.comments',
+    'pages',
+    'fibertst',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -130,6 +131,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_FINDERS = DEFAULT_SETTINGS.STATICFILES_FINDERS + (
+    'compressor.finders.CompressorFinder',
+)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -148,3 +152,5 @@ FIBER_METADATA_PAGE_SCHEMA = {
                     'widget': 'textarea',
                 },
 }
+
+SITE_ID = 1
