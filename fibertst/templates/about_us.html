@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles fiber_tags thumbnail %}
+{% load staticfiles fiber_tags page_tags thumbnail %}
 
 {% block mains %}
 <!--Start Our school area -->
@@ -20,7 +20,7 @@
 			</div>
 			<div class="col-md-4">
 				<div class="school-pic">
-					<img src="{% thumbnail fiber_page.get_image 360x232 crop="smart" %}" alt="school image">
+					<img src="{% thumbnail fiber_page.get_image 360x232 crop="smart" %}">
 				</div>
 			</div>
 		</div>
@@ -75,7 +75,7 @@
 		{% get_child_pages 'prepodavateli' 'teachers' %}
 		<!-- Single Member -->
 		{% for teacher in teachers %}
-            {% if forloop.counter > 1 %}
+            {% if teacher %}
 				<div class="col-md-3">
 				<div class="single-member">
 					<div class="mb-image">

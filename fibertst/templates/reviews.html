@@ -51,7 +51,6 @@
           </div>
           <div class="col-md-9">
             	<p class="reviewer-comment">{{ comment.comment }}</p>
-
           </div>
         </div>
            {% endfor %}
@@ -116,7 +115,7 @@
                 	{% comment %}
                 	Вывод формы для комментариев:
                 	{% endcomment %}
-                	{% comment_form fiber_page as comment_form %}
+                	
           <div class="col-md-2">
            <span>Напишите свой отзыв</span> 
          </div>
@@ -131,7 +130,7 @@
             <div class="single-input">
               	{{ comment_form.email|add_placeholder:"Ваш E-mail" }}
             </div>
-
+            
             <input type="submit" value="Опубликовать" class="estut-btn active submit">
           </div>
         </div>

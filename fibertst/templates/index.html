@@ -1,5 +1,5 @@
 {% extends "base_m.html" %}
-{% load staticfiles fiber_tags thumbnail %}
+{% load staticfiles fiber_tags page_tags thumbnail %}
 
 {% block main %}
 <!-- Start Slider Area -->
@@ -53,7 +53,7 @@
             							<div role="tabpanel" class="tab-pane fade in active" id="trending">
             								<div class="row">
             									<div class="col-md-6 text-left">
-            										<div class="estut-tab-caption">
+            										<div class="estut-tab-caption ">
             											{% show_page_content 'about' %}
             										</div>
             									</div>
@@ -192,7 +192,7 @@
 				<div class="single-course big-post clear ">
                                     <div class="col-md-6 padding0">
                                          <div class="course-thumb">
-                                              <img  src="{% thumbnail course.image 570x550 crop="smart" %}" alt="{{ course.title }}" />
+                                              <img src="{{ course.get_image.url }}" alt="{{ course.title }}" />
                                               <div class="price-sticker">
                                                    <span><i class="fa fa-rub" aria-hidden="true"></i>{{ course.metadata.description }}</span>
                                              </div>
@@ -284,22 +284,22 @@
   <div class="container">
        <div class="row">
             <div class="testimonials-list">
-                 <!-- Single Testimonial -->
-                {% for reviews in reviews %}
-                {% if forloop.counter > 1 %}
-                 <div class="single-testimonial">
-                      <div class="col-md-12 text-left ">
-                           <div class="testimonial-text">
-                                <p>{% show_page_content reviews 'main' %}</p>
-                               </div>
-                               <div class="author">
-                                     <a href="#" target="_blank">{{ reviews.metadata.teacher }}</a>
-                               </div>
-                         </div>
-                   </div>
-                {% endif %}
+                <!-- Single Testimonial -->
+                {% for review in reviews %}
+                    {% if review %}
+                        <div class="single-testimonial">
+                            <div class="col-md-12 text-left ">
+                                   <div class="testimonial-text">
+                                        <p>{% show_page_content review 'main' %}</p>
+                                   </div>
+                                   <div class="author">
+                                        <a href="#" target="_blank">{{ review.metadata.teacher }}</a>
+                                   </div>
+                            </div>
+                        </div>
+                    {% endif %}
                 {% endfor %}
-                   <!-- /Single Testimonial -->
+                <!-- /Single Testimonial -->
            </div>
      </div>
 </div>

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load staticfiles fiber_tags thumbnail %}
+
+{% block mains %}
+
+<!-- Start Small image blog Post area -->
+<div class="contact-us-area padding45 bg-white-2">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="area-headding text-center">
+					<h2 class="section-title">{{ fiber_page.title }}</h2>
+					<p class="sub-title">{{ fiber_page.metadata.description }}</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="contact-info-list text-center clear">
+					<div class="contact-info-inner clear">
+                        {% show_page_content 'main'  %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!-- End Small image blog Post area -->
+
+{% endblock %}
