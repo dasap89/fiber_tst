@@ -35,7 +35,7 @@
                                 {% comment %}
                       Вывод формы для комментариев:
                     {% endcomment %}
-                    {% comment_form fiber_page as comment_form %}
+                    
     <div class="col-md-10 col-md-offset-1">
        <div class="reviews clear">
         <!-- Start single-review -->
@@ -109,29 +109,25 @@
 <div class="recall">
   <div class="container">
     <div class="row">
+      {% comment_form fiber_page as form %}
       <div class="col-md-10 col-md-offset-1">
         <form action="{% comment_target fiber_page %}" method="POST">
             	{% csrf_token %}
-                	{% comment %}
-                	Вывод формы для комментариев:
-                	{% endcomment %}
-                	
           <div class="col-md-2">
            <span>Напишите свой отзыв</span> 
          </div>
          <div class="col-md-10">
           <div class="form-inner">
             <div class="single-input">
-              	{{ comment_form.comment|add_placeholder:"Введите текст..." }}
+              	{{ form.comment|add_placeholder:"Введите текст..." }}
             </div>
             <div class="single-input">
-              	{{ comment_form.name|add_placeholder:"Ваше имя" }}
+              	{{ form.name|add_placeholder:"Ваше имя" }}
             </div>
             <div class="single-input">
-              	{{ comment_form.email|add_placeholder:"Ваш E-mail" }}
+              	{{ form.email|add_placeholder:"Ваш E-mail" }}
             </div>
-            
-            <input type="submit" value="Опубликовать" class="estut-btn active submit">
+            <input type="submit" value="Опубликовать" class="estut-btn active submit" />
           </div>
         </div>
 
