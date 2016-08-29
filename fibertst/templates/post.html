@@ -48,29 +48,31 @@
 					<!-- Start Review Area -->
 					<div class="review-area">
 						<div class="post-title-v3">
-							<h2 class="post-title">Комментарии (1)</h2>
-						</div>
-						<div class="review-wrap">
+						{% comment_count fiber_page as comment_counts %}
+						{% if comment_counts > 0 %}	
+							<div class="review-wrap">
 							<div class="review-inner">
-								<!-- Start Single Review -->
-                                {% comments fiber_page as comment_list %}
-
-                                {% for comment in comment_list %}
+							<!-- Start Single Review -->
+							<h2 class="post-title">Комментарии ({{ comment_counts }})</h2>
+							{% comments fiber_page as comment_list %}
+							{% for comment in comment_list %}
 								<div class="single-review fix">
 									<div class="col-md-3 p0">
-									<div class="reviewer-info">
-										 <h4 class="reviewer-name">{{ comment.name }}</h4>
-                                        <span class="date-time">{{ comment.submit_date|date:"d m Y" }}</span>
-									</div>
+										<div class="reviewer-info">
+										 	<h4 class="reviewer-name">{{ comment.name }}</h4>
+                                        	<span class="date-time">{{ comment.submit_date|date:"d m Y" }}</span>
+										</div>
 									</div>
 									<div class="col-md-9">
-									<p class="reviewer-comment">{{ comment.comment }}</p>
-									<a href="blog-details.html#" class="reply-btn"><i class="fa fa-share"></i> Ответить</a>
+										<p class="reviewer-comment">{{ comment.comment }}</p>
+										<a href="blog-details.html#" class="reply-btn"><i class="fa fa-share"></i> Ответить</a>
 									</div>
 								</div>
-                                {% endfor %}
-								<!-- End Single Review -->
+                            {% endfor %}
+                            <!-- End Single Review -->
 							</div>
+						</div>
+						{% endif %}
 						</div>
 					</div>
 					<!-- End Review Area -->

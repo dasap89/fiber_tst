@@ -130,7 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'fibertst/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_FINDERS = DEFAULT_SETTINGS.STATICFILES_FINDERS + [
     'compressor.finders.CompressorFinder',
 ]
@@ -154,3 +154,27 @@ FIBER_METADATA_PAGE_SCHEMA = {
 }
 
 SITE_ID = 1
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# DEFAULT_FROM_EMAIL = 'testing@example.com'
+# EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = ''
+# EMAIL_USE_TLS = False 
+# EMAIL_PORT = 1025
+
+
+# EMAIL_BACKEND = "sgbackend.SendGridBackend"
+# EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.sendgrid.net'
+# EMAIL_HOST_USER = 'design_school_ideas_admin'
+# EMAIL_HOST_PASSWORD = 'ka$axahU7r'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_HOST_USER = 'design.school.ideas@yandex.ru'
+EMAIL_HOST_PASSWORD = 'ka$axahU7r'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

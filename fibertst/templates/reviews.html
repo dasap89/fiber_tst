@@ -1,95 +1,98 @@
 {% extends "base.html" %}
 
-{% load staticfiles fiber_tags thumbnail pinax_comments_tags form_helper %}
+{% load staticfiles fiber_tags thumbnail pinax_comments_tags form_helper page_tags %}
 
 {% block mains %}
 
 <!-- Start Contact Us area -->
-  <div class="contact-us-area padding45 bg-white-2">
-   <div class="container">
+<div class="contact-us-area padding45 bg-white-2">
+  <div class="container">
     <div class="row">
-     <div class="col-md-12">
-      <div class="area-headding text-center">
-       <h2 class="section-title">Отзывы</h2>
-     </div>
-     
-   </div>
- </div>
-<div class="row">
-                      <div class="estut-tab-wrap reviews-tab-wrap">
-                        <!-- Start Tab Menu-->                                                          
-                        <div class="estut-tab-menus text-center">
-                          <ul class="estut-tab" role="tablist">
-                            <li role="presentation" ><a href="index-3.html#trending" aria-controls="trending" role="tab" data-toggle="tab" aria-expanded="true" class="active">Все </a></li>
-                            <li role="presentation" class=""><a href="index-3.html#certified" aria-controls="certified" role="tab" data-toggle="tab" aria-expanded="false">О школе</a></li>
-                            <li role="presentation" class=""><a href="index-3.html#book" aria-controls="book" role="tab" data-toggle="tab" aria-expanded="false">О преподователях</a></li>
-                            <li role="presentation" class=""><a href="index-3.html#certification" aria-controls="certification" role="tab" data-toggle="tab" aria-expanded="false">О Курсах</a></li>
-                          </ul>
-                        </div>
-                        <!-- Start Tab Menu-->
-                        <!-- Start Tab Content-->
-                        <div class="tab-content">
-                          <!-- Start Single Content-->
-                          <div role="tabpanel" class="tab-pane fade active in" id="trending">
-                            <div class="row">
-                                {% comment %}
-                      Вывод формы для комментариев:
-                    {% endcomment %}
-                    {% comment_form fiber_page as comment_form %}
-    <div class="col-md-10 col-md-offset-1">
-       <div class="reviews clear">
-        <!-- Start single-review -->
-           	{% comments fiber_page as comment_list %}
-
-                {% for comment in comment_list %}
-        <div class="single-review fix">
-          <div class="col-md-3 p0">
-            <div class="reviewer-info">
-		          <h4 class="reviewer-name">{{ comment.name }}</h4>
-		          <span class="date-time">{{ comment.submit_date|date:"d m Y" }}</span>
-            </div>
-          </div>
-          <div class="col-md-9">
-            	<p class="reviewer-comment">{{ comment.comment }}</p>
-          </div>
+      <div class="col-md-12">
+        <div class="area-headding text-center">
+          <h2 class="section-title">Отзывы</h2>
         </div>
-           {% endfor %}
-        <!-- End single-review -->
       </div>
     </div>
+    <div class="row">
+      <div class="estut-tab-wrap reviews-tab-wrap">
+        <!-- Start Tab Menu-->                                                          
+        <div class="estut-tab-menus text-center">
+          <ul class="estut-tab" role="tablist">
+              {% if fiber_page.get_children.count == 0 %}
+                  <li><a href={{ fiber_page.parent.get_absolute_url }} > Все </a></li>
+                  {% for child in fiber_page.parent.get_children %}
+                  <li><a 
+                    {% if fiber_page.get_absolute_url == child.get_absolute_url %}
+                      class="active"
+                    {% endif %} href={{ child.get_absolute_url }} 
+                    > {{ child.title }}</a>{% if child.pk == fiber_page.pk %}  {% endif %} </li>
+                  {% endfor %}
+              {% else %}
+                  <li><a class="active" href={{ fiber_page.get_absolute_url }}> Все </a></li>
+                  {% for child in fiber_page.get_children %}
+                  <li><a href={{ child.get_absolute_url }} > {{ child.title }}</a></li>
+                  {% endfor %}
+              {% endif %}
+          </ul>
+        </div>
+        <!-- End Tab Menu-->
+        <!-- Start Tab Content-->
+        <div class="tab-content">
+          <!-- Start Single Content-->
+          <div role="tabpanel" class="tab-pane fade active in">
+            <div class="row">
+                {% comment %}
+                  Вывод формы для комментариев:
+                {% endcomment %}
+              <div class="col-md-10 col-md-offset-1">
+                <div class="reviews clear">
+                  <!-- Start single-review -->
+                  {% if fiber_page.get_children.count == 0 %}
+                  
+                    {% comments fiber_page as comment_list %}
+                      {% for comment in comment_list %}
+                        <div class="single-review fix">
+                          <div class="col-md-3 p0">
+                            <div class="reviewer-info">
+                              <h4 class="reviewer-name">{{ comment.name }}</h4>
+                              <span class="date-time">{{ comment.submit_date|date:"d m Y" }}</span>
                             </div>
                           </div>
-                          <div role="tabpanel" class="tab-pane fade" id="certification">
-                            <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-       <div class="reviews clear">
-        <!-- Start single-review -->
-           	{% comments fiber_page as comment_list %}
-
-            {% for comment in comment_list %}
-        <div class="single-review fix">
-          <div class="col-md-3 p0">
-            <div class="reviewer-info">
-	              <h4 class="reviewer-name">{{ comment.name }}</h4>
-	              <span class="date-time">{{ comment.submit_date|date:"d m Y" }}</span>
-            </div>
-          </div>
-          <div class="col-md-9">
-            	<p class="reviewer-comment">{{ comment.comment }}</p>
-
-          </div>
-        </div>
-           {% endfor %}
-        <!-- End single-review -->
-      </div>
-    </div>
-                            </div>
+                          <div class="col-md-9">
+                        	  <p class="reviewer-comment">{{ comment.comment }}</p>
                           </div>
                         </div>
-                        <!-- End Tab Content-->
+                      {% endfor %}
+          
+                  {% else %}
+                  
+                    {% get_root_and_child_comments fiber_page as comment_list %}
+                      {% for comment in comment_list %}
+                      <div class="single-review fix">
+                        <div class="col-md-3 p0">
+                          <div class="reviewer-info">
+          	                <h4 class="reviewer-name">{{ comment.name }}</h4>
+          	                <span class="date-time">{{ comment.submit_date|date:"d m Y" }}</span>
+                          </div>
+                        </div>
+                        <div class="col-md-9">
+                      	  <p class="reviewer-comment">{{ comment.comment }}</p>
+                        </div>
                       </div>
-                    </div>
-                    <!-- pagination -->
+                    {% endfor %}
+          
+                  {% endif %}
+                <!-- End single-review -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- End Tab Content-->
+      </div>
+    </div>
+<!-- Start pagination -->
 <div class="row">
   <div class="col-md-12 text-center">
     <div class="pagination">
@@ -109,29 +112,26 @@
 <div class="recall">
   <div class="container">
     <div class="row">
+      {% comment_form fiber_page as form %}
       <div class="col-md-10 col-md-offset-1">
         <form action="{% comment_target fiber_page %}" method="POST">
             	{% csrf_token %}
-                	{% comment %}
-                	Вывод формы для комментариев:
-                	{% endcomment %}
-                	
           <div class="col-md-2">
            <span>Напишите свой отзыв</span> 
          </div>
          <div class="col-md-10">
           <div class="form-inner">
             <div class="single-input">
-              	{{ comment_form.comment|add_placeholder:"Введите текст..." }}
+              {{ form.comment|add_placeholder:"Введите не текст..." }}
             </div>
             <div class="single-input">
-              	{{ comment_form.name|add_placeholder:"Ваше имя" }}
+              	{{ form.name|add_placeholder:"Ваше имя" }}
             </div>
             <div class="single-input">
-              	{{ comment_form.email|add_placeholder:"Ваш E-mail" }}
+              	{{ form.email|add_placeholder:"Ваш E-mail" }}
             </div>
-            
-            <input type="submit" value="Опубликовать" class="estut-btn active submit">
+            <input type="hidden" name="website" id="id_website" value="cources"><br>
+            <input type="submit" value="Опубликовать" class="estut-btn active submit" />
           </div>
         </div>
 

@@ -38,6 +38,8 @@ urlpatterns = [
     url(r'^comments/', include('pinax.comments.urls')),
 
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT,}),
+    
+    url(r'^contact-me/$', 'pages.views.contact_me'),
 
     url(r'^$', IndexPage.as_view()),  # this should always be placed last
 
