@@ -21,6 +21,7 @@ def get_root_and_child_comments(object):
     Usage:
         {% get_root_and_child_comments obj as var %}
     """
+    
     url = object.url
     
     ids = Page.objects.filter(
@@ -31,3 +32,4 @@ def get_root_and_child_comments(object):
         object_id__in=ids,
         content_type=ContentType.objects.get_for_model(object)
     ).order_by('-submit_date')
+

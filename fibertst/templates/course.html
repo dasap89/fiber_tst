@@ -14,7 +14,7 @@
                     <!--Start Single Blog  -->
                     <div class="single-blog bg-white fix ">
                         <div class="blog-thumb opasity-right-post">
-                            <img class="blog-img" src="{% thumbnail fiber_page.get_image 943x316 crop="smart" %}" alt="{{ fiber_page.title }}" />
+                            <img class="blog-img" src="{% thumbnail fiber_page.get_image 943x316 crop="smart" %}" alt="{{ fiber_page.title }}" style="height: 100%; width: 100%; object-fit: contain" />
 
                             <div class="wrap-test">
                                 <div class="blog-info-wrap">
@@ -113,7 +113,7 @@
 
                     <div class="col-md-9 col-md-offset-1">
                         <div class="application">
-                            <form action="">
+                            <form action="" method="post">
                                 <div class="col-md-3"><span>Ф.И.О</span></div><div class="col-md-8"><input class="email-box" type="email" name="name" id="name"/></div>
                                 <div class="col-md-3"><span>Номер телефона</span></div><div class="col-md-8"><input class="email-box" type="email" name="phone" id="phone" /></div>
                                 <div class="col-md-3"><span>E-mail</span></div><div class="col-md-8"><input class="email-box" type="email" name="email" id="email" /></div>

@@ -50,10 +50,10 @@ venv/*
 
 fiber/*
 
-.idea/*
-
 media/*
 
 static/*
+
+.idea/*
 
 png/*
