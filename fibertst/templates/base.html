@@ -90,9 +90,9 @@
             								<ul>
             									<li class="search-bar">
             										<div class="search-form">
-            											<form method="get" action="index-3.html#">
+            											<form method="GET" action="/search/">
             												<button type="submit"><i class="fa fa-search"></i></button>
-            												<input type="text" placeholder="Поиск" id="search" name="search">
+            												<input type="text" placeholder="Поиск" id="id_search" name="search">
             											</form>
             										</div>
             									</li>
@@ -223,11 +223,11 @@
                  <div class="newsletter-form">
                       <form action="/contact-me/" method="POST">
                       	{% csrf_token %}
-                           <input class="email-box" type="text" name="name" id="id_name" placeholder="Ваше Имя"/>
+                           <input class="email-box" type="text" name="name" id="id_name" placeholder="Ваше Имя" />
                            <span class="icon"><i class="fa fa-child" aria-hidden="true"></i></span>
                            <input class="email-box" type="email" name="email" id="id_email" placeholder="Ваш E-mail "/>
                            <span class="icon"><i class="fa fa-envelope-o"></i></span>
-                           <input   type="textarea" name="message" id="text" placeholder="Введите сообщение..."/>
+                           <input  type="textarea" name="message" id="text" placeholder="Введите сообщение..."/>
                            <button type="submit" class="estut-btn-v2 default-color active" style="border: none;">Отправить</button>
                      </form>
                </div>
