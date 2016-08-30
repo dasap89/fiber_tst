@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'fiber',
     'pinax.comments',
+    'pure_pagination',
     'pages',
     'fibertst',
 ]
@@ -156,12 +157,12 @@ FIBER_METADATA_PAGE_SCHEMA = {
 SITE_ID = 1
 
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# DEFAULT_FROM_EMAIL = 'testing@example.com'
-# EMAIL_HOST_USER = ''
-# EMAIL_HOST_PASSWORD = ''
-# EMAIL_USE_TLS = False 
-# EMAIL_PORT = 1025
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'testing@example.com'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False 
+EMAIL_PORT = 1025
 
 
 # EMAIL_BACKEND = "sgbackend.SendGridBackend"
@@ -173,8 +174,15 @@ SITE_ID = 1
 # EMAIL_USE_TLS = True
 
 
-EMAIL_HOST = 'smtp.yandex.ru'
-EMAIL_HOST_USER = 'design.school.ideas@yandex.ru'
-EMAIL_HOST_PASSWORD = 'ka$axahU7r'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.yandex.ru'
+# EMAIL_HOST_USER = 'design.school.ideas@yandex.ru'
+# EMAIL_HOST_PASSWORD = 'ka$axahU7r'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+
+PAGINATION_SETTINGS = {
+    'PAGE_RANGE_DISPLAYED': 10,
+    'MARGIN_PAGES_DISPLAYED': 2,
+
+    'SHOW_FIRST_PAGE_WHEN_INVALID': True,
+}
