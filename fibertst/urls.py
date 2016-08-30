@@ -22,6 +22,8 @@ from pages.views import IndexPage
 
 from pages.views import AboutTechersPage
 
+from pages.views import SearchList
+
 urlpatterns = [
     # Examples:
     # url(r'^$', 'testproject.views.home', name='home'),
@@ -38,6 +40,9 @@ urlpatterns = [
     url(r'^comments/', include('pinax.comments.urls')),
 
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT,}),
+    
+    # url(r'^search/', 'pages.views.search'),
+    url(r'^search/', SearchList.as_view()),
     
     url(r'^contact-me/$', 'pages.views.contact_me'),
 
