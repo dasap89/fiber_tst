@@ -58,7 +58,7 @@ def contact_me(request):
             
             content = template.render(context)
            
-            receivers = User.objects.filter(is_superuser=True).values('email', flat=True)
+            receivers = User.objects.filter(is_superuser=True).values_list('email', flat=True)
 
             email = EmailMessage(
                 "This email comes from contact form",
@@ -104,7 +104,4 @@ class SearchList(PaginationMixin, ListView):
         context = super(SearchList, self).get_context_data(**kwargs)
         context['search'] = self.search
         return context
-        Query.get(search_query).add_hit()
-    else:
-        search_results = Page.objects.none()
 

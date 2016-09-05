@@ -160,7 +160,7 @@ EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_HOST_USER = 'design.school.ideas@yandex.ru'
 EMAIL_HOST_PASSWORD = 'ka$axahU7r'
 EMAIL_PORT = 465
-EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True
 
 PAGINATION_SETTINGS = {
     'PAGE_RANGE_DISPLAYED': 10,
