@@ -85,22 +85,27 @@
             						<p>- по телефону +7 (978) 729-78-01; </p>
             						<p>- по электронной почте ideas.crimea@yandex.ru </p>
             						<p>- через форму обратной связи </p>
-            						<form action="">
+            						<form id="applyForm" action={% if user.is_authenticated %}"/helpdesk/tickets/submit/"{% else %}"/helpdesk/"{% endif %} method="POST">
+            							{% csrf_token %}
+            							<input type="hidden" name="title" id="id_title" value="New apply for course"/>
+            							<input type="hidden" name="submitter_email" value="shelby_dima@mail.ru"/>
+            							<input type="hidden" name="priority" value="3"/>
             							
-            							<div class="col-md-4"><span>Ваше имя</span></div><div class="col-md-8"><input class="email-box" type="email" name="email" id="email"/></div>
-            							<div class="col-md-4"><span>Ваш E-mail</span></div><div class="col-md-8"><input class="email-box" type="email" name="email" id="email" /></div>
-            							<div class="col-md-4"><span>Ваш телефон</span></div><div class="col-md-8"><input class="email-box" type="email" name="email" id="email" /></div>
+            							<div class="col-md-4"><span>Ваше имя</span></div><div class="col-md-8"><input class="email-box" type="text" name="name" id="id_apl_name"/></div>
+            							<div class="col-md-4"><span>Ваш E-mail</span></div><div class="col-md-8"><input class="email-box" type="email" name="email" id="id_apl_email" /></div>
+            							<div class="col-md-4"><span>Ваш телефон</span></div><div class="col-md-8"><input class="email-box" type="text" name="phone" id="id_apl_phone" /></div>
             							<div class="col-md-4"><span>Название курса</span></div>
             							<div class="col-md-8">
-            								<select>
-            									<option disabled">- Выбрать из списка -</option>
-            									<option value="">Saab</option>
-            									<option value="">Opel</option>
-            									<option value="">Audi</option>
+            								<select name="queue">
+            									<option disabled>- Выбрать из списка -</option>
+            									<option value="1">С чего начать?</option>
+            									<option value="2">Светодизайн</option>
+            									<option value="3">Дизайн интерьера. Основы.</option>
+            									<option value="4">Быстрый дизайн</option>
             								</select>
             							</div>
-            							<div class="col-md-4"><span>Комментарий</span></div><div class="col-md-8"><input   type="textarea" name="email" id="text" />
-<a class="estut-btn-v2 default-color active btn-right" href="#">Отправить</a>
+            							<div class="col-md-4"><span>Комментарий</span></div><div class="col-md-8"><input class="email-box" type="textarea" name="comment" id="id_apl_comment" />
+                                        <button type="submit" class="estut-btn-v2 default-color active btn-right" style="border: none;">Отправить</button>
             							</div>
             							
             						</form>
@@ -125,5 +130,4 @@
             				</div>
             		</div>
             	</section>
-
 {% endblock %}

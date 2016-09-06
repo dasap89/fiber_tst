@@ -113,13 +113,32 @@
 
                     <div class="col-md-9 col-md-offset-1">
                         <div class="application">
-                            <form action="" method="post">
-                                <div class="col-md-3"><span>Ф.И.О</span></div><div class="col-md-8"><input class="email-box" type="email" name="name" id="name"/></div>
-                                <div class="col-md-3"><span>Номер телефона</span></div><div class="col-md-8"><input class="email-box" type="email" name="phone" id="phone" /></div>
-                                <div class="col-md-3"><span>E-mail</span></div><div class="col-md-8"><input class="email-box" type="email" name="email" id="email" /></div>
-                                <div class="col-md-3"><span>Комментарий</span></div><div class="col-md-8"><input   type="textarea" name="email" id="text" />
+                            <form id="applyForm" action={% if user.is_authenticated %}"/helpdesk/tickets/submit/"{% else %}"/helpdesk/"{% endif %} method="POST">
+            					{% csrf_token %}
+            					<input type="hidden" name="title" id="id_title" value="New apply for course"/>
+            					<input type="hidden" name="submitter_email" value="shelby_dima@mail.ru"/>
+            					<input type="hidden" name="priority" value="3"/>
+            					
+                                {% if fiber_page.title == "С чего начать?" %}
+                                    <input type="hidden" name="queue" value="1"/>
+                                {% endif %}
+                                {% if fiber_page.title == "Светодизайн" %}
+                                    <input type="hidden" name="queue" value="2"/>
+                                {% endif %}
+                                {% if fiber_page.title == "Дизайн интерьера. Основы." %}
+                                    <input type="hidden" name="queue" value="3"/>
+                                {% endif %}
+                                {% if fiber_page.title == "Быстрый дизайн" %}
+                                    <input type="hidden" name="queue" value="4"/>
+                                {% endif %}
+                                
+            							
+                                <div class="col-md-3"><span>Ф.И.О</span></div><div class="col-md-8"><input class="email-box" type="text" name="name" id="id_apl_name"/></div>
+                                <div class="col-md-3"><span>Номер телефона</span></div><div class="col-md-8"><input class="email-box" type="text" name="phone" id="id_apl_phone" /></div>
+                                <div class="col-md-3"><span>E-mail</span></div><div class="col-md-8"><input class="email-box" type="email" name="sender_email" id="id_apl_email" /></div>
+                                <div class="col-md-3"><span>Комментарий</span></div><div class="col-md-8"><input  class="email-box" type="textarea" name="comment" id="id_apl_comment" />
                                 <span class="off">*После регистрации на Вашу почту прийдет письмо-подтверждение о записи на курс и реквизиты на оплату.    </span>
-                                <a class="estut-btn-v2 default-color active btn-right" href="#">Отправить</a>
+                                <button type="submit" class="estut-btn-v2 default-color active btn-right" style="border: none;">Отправить</button>
                             </div>
                         </form>
                     </div>

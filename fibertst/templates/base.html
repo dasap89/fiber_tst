@@ -319,9 +319,10 @@
 		============================================ -->		
 		<script src="{% static "js/main.js" %}" ></script>
 		<script>
-            $("#applyForm").on('submit', function (e) {
+		    $("#applyForm").on('submit', function (e) {
                 e.preventDefault();
-                var body = 'Пользователь '.concat($('#id_apl_name').val(),' хочет записаться на курс. Номер его телефона ',$('#id_apl_phone').val(),'. Коментарий: ',$('#id_apl_comment').val()); //$('#inputEmail').val()
+                var url = $(e.currentTarget).attr('action')
+                var body = 'Пользователь '.concat($('#id_apl_name').val(),' (email: ',$('#id_apl_email').val(),') хочет записаться на курс. Номер его телефона ',$('#id_apl_phone').val(),'. Коментарий: ',$('#id_apl_comment').val()); //$('#inputEmail').val()
                 var data = {
                     'body': body
                 }
@@ -329,7 +330,7 @@
                 
                 $.ajax({
                     method: "POST",
-                    url: "/helpdesk/tickets/submit/",
+                    url: url,
                     data: formData,
                     success: function (response) {
                         if (status == 302) {
