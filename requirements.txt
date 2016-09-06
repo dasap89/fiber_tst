@@ -16,3 +16,5 @@ simplegeneric==0.8.1
 django_compressor==2.1
 git+https://github.com/vladyslav2/django-fiber.git@django1.9
 django-pure-pagination
+django-helpdesk
+django-markdown-deux==1.0.5

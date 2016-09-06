@@ -76,7 +76,6 @@ def contact_me(request):
                 pass
             
             return redirect('/')
-    print form.errors
     return render(request, 'index.html', {
         'form': form,
     })

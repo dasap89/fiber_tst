@@ -45,6 +45,7 @@ urlpatterns = [
     url(r'^search/', SearchList.as_view()),
     
     url(r'^contact-me/$', 'pages.views.contact_me'),
+    url(r'helpdesk/', include('helpdesk.urls')), # This is needed for helpdesk
 
     url(r'^$', IndexPage.as_view()),  # this should always be placed last
 

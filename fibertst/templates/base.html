@@ -62,6 +62,11 @@
 <link rel="stylesheet" href="{% static "css/responsive.css" %}" >
 <!-- modernizr JS
 ============================================ -->			
+<style type="text/css">
+    .errorlist {
+        color: #f39c12;
+    }
+</style>
 <script src="{% static "js/vendor/modernizr-2.8.3.min.js" %}" ></script>
 </head>
 <body>
@@ -225,9 +230,12 @@
                       	{% csrf_token %}
                            <input class="email-box" type="text" name="name" id="id_name" placeholder="Ваше Имя" />
                            <span class="icon"><i class="fa fa-child" aria-hidden="true"></i></span>
+                           {{ form.name.errors }}
                            <input class="email-box" type="email" name="email" id="id_email" placeholder="Ваш E-mail "/>
                            <span class="icon"><i class="fa fa-envelope-o"></i></span>
+                           {{ form.email.errors }}
                            <input  type="textarea" name="message" id="text" placeholder="Введите сообщение..."/>
+                           {{ form.message.errors }}
                            <button type="submit" class="estut-btn-v2 default-color active" style="border: none;">Отправить</button>
                      </form>
                </div>
@@ -310,5 +318,29 @@
 		<!-- main JS
 		============================================ -->		
 		<script src="{% static "js/main.js" %}" ></script>
+		<script>
+            $("#applyForm").on('submit', function (e) {
+                e.preventDefault();
+                var body = 'Пользователь '.concat($('#id_apl_name').val(),' хочет записаться на курс. Номер его телефона ',$('#id_apl_phone').val(),'. Коментарий: ',$('#id_apl_comment').val()); //$('#inputEmail').val()
+                var data = {
+                    'body': body
+                }
+                var formData =  $(e.currentTarget).serialize() + '&' + $.param(data);
+                
+                $.ajax({
+                    method: "POST",
+                    url: "/helpdesk/tickets/submit/",
+                    data: formData,
+                    success: function (response) {
+                        if (status == 302) {
+                            window.location.replace("/cources/");
+                        } else {
+                            alert("Спасибо, ".concat($('#id_apl_name').val(),". Ваша заявка принята. С Вами свяжутся в скором времени"));
+                            document.getElementById("applyForm").reset();
+                        }
+                    }
+                });
+            })
+        </script>
 	</body>
 	</html>

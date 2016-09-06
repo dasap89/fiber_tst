@@ -39,12 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'django.contrib.humanize',
     'mptt',
     'compressor',
     'easy_thumbnails',
     'fiber',
     'pinax.comments',
     'pure_pagination',
+    'bootstrapform', # Required fir helpdesk
+    'markdown_deux',  # Required for Knowledgebase item formatting
+    'helpdesk',  # This is helpdesk
     'pages',
     'fibertst',
 ]
