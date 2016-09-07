@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load staticfiles fiber_tags thumbnail pinax_comments_tags form_helper %}
+{% load staticfiles fiber_tags thumbnail pinax_comments_tags form_helper page_tags %}
 
 {% block mains %}
 
@@ -118,19 +118,7 @@
             					<input type="hidden" name="title" id="id_title" value="New apply for course"/>
             					<input type="hidden" name="submitter_email" value="shelby_dima@mail.ru"/>
             					<input type="hidden" name="priority" value="3"/>
-            					
-                                {% if fiber_page.title == "С чего начать?" %}
-                                    <input type="hidden" name="queue" value="1"/>
-                                {% endif %}
-                                {% if fiber_page.title == "Светодизайн" %}
-                                    <input type="hidden" name="queue" value="2"/>
-                                {% endif %}
-                                {% if fiber_page.title == "Дизайн интерьера. Основы." %}
-                                    <input type="hidden" name="queue" value="3"/>
-                                {% endif %}
-                                {% if fiber_page.title == "Быстрый дизайн" %}
-                                    <input type="hidden" name="queue" value="4"/>
-                                {% endif %}
+            					<input type="hidden" name="queue" value="{% get_queue_for_page fiber_page %}"/>		
                                 
             							
                                 <div class="col-md-3"><span>Ф.И.О</span></div><div class="col-md-8"><input class="email-box" type="text" name="name" id="id_apl_name"/></div>

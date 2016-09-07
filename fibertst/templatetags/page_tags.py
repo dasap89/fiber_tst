@@ -3,6 +3,8 @@ from fiber.models import Page
 from pinax.comments.models import Comment
 from django.contrib.contenttypes.models import ContentType
 
+from helpdesk.models import Queue
+
 from django.db.models import Q
 
 register = template.Library()
@@ -32,4 +34,26 @@ def get_root_and_child_comments(object):
         object_id__in=ids,
         content_type=ContentType.objects.get_for_model(object)
     ).order_by('-submit_date')
+@register.simple_tag
+def get_queue_for_page(object):
+    """
+    Usage:
+        {% get_queue_for_page obj as var %}
+    """
+    
+    title_of_page = object.title
+    
+    return Queue.objects.get(title=title_of_page).id
 
+@register.simple_tag
+def get_queue_all_pages(object):
+    """
+    Usage:
+        {% get_queue_all_pages obj as var %}
+    """
+    
+    url = object.url
+    
+    titles = Page.objects.filter(parent__url = url).values('title')
+    
+    return Queue.objects.filter(title__in=titles)
