@@ -115,16 +115,14 @@
                         <div class="application">
                             <form id="applyForm" action={% if user.is_authenticated %}"/helpdesk/tickets/submit/"{% else %}"/helpdesk/"{% endif %} method="POST">
             					{% csrf_token %}
-            					<input type="hidden" name="title" id="id_title" value="New apply for course"/>
-            					<input type="hidden" name="submitter_email" value="shelby_dima@mail.ru"/>
             					<input type="hidden" name="priority" value="3"/>
             					<input type="hidden" name="queue" value="{% get_queue_for_page fiber_page %}"/>		
                                 
             							
-                                <div class="col-md-3"><span>Ф.И.О</span></div><div class="col-md-8"><input class="email-box" type="text" name="name" id="id_apl_name"/></div>
+                                <div class="col-md-3"><span>Ф.И.О</span></div><div class="col-md-8"><input class="email-box" type="text" name="name" id="id_apl_name" required/></div>
                                 <div class="col-md-3"><span>Номер телефона</span></div><div class="col-md-8"><input class="email-box" type="text" name="phone" id="id_apl_phone" /></div>
-                                <div class="col-md-3"><span>E-mail</span></div><div class="col-md-8"><input class="email-box" type="email" name="sender_email" id="id_apl_email" /></div>
-                                <div class="col-md-3"><span>Комментарий</span></div><div class="col-md-8"><input  class="email-box" type="textarea" name="comment" id="id_apl_comment" />
+                                <div class="col-md-3"><span>E-mail</span></div><div class="col-md-8"><input class="email-box" type="email" name="submitter_email" id="id_apl_email" required /></div>
+                                <div class="col-md-3"><span>Комментарий</span></div><div class="col-md-8"><input  class="email-box" type="textarea" name="body" id="id_apl_comment" />
                                 <span class="off">*После регистрации на Вашу почту прийдет письмо-подтверждение о записи на курс и реквизиты на оплату.    </span>
                                 <button type="submit" class="estut-btn-v2 default-color active btn-right" style="border: none;">Отправить</button>
                             </div>

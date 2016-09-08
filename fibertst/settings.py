@@ -160,18 +160,31 @@ FIBER_METADATA_PAGE_SCHEMA = {
 
 SITE_ID = 1
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_HOST_USER = 'design.school.ideas@yandex.ru'
 EMAIL_HOST_PASSWORD = 'ka$axahU7r'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 
+"""
 QUEUE_EMAIL_BOX_TYPE = 'imap'
 QUEUE_EMAIL_BOX_SSL = True
 QUEUE_EMAIL_BOX_HOST = 'imap.yandex.ru'
 QUEUE_EMAIL_BOX_USER = EMAIL_HOST_USER
 QUEUE_EMAIL_BOX_PASSWORD = EMAIL_HOST_PASSWORD
 QUEUE_EMAIL_BOX_PORT = 993
+"""
+
+
+HELPDESK_DEFAULT_SETTINGS = {
+        'use_email_as_submitter': True,
+        'email_on_ticket_assign': True,
+        'email_on_ticket_change': True,
+        'login_view_ticketlist': True,
+        'email_on_ticket_apichange': True,
+        'tickets_per_page': 25
+}
 
 PAGINATION_SETTINGS = {
     'PAGE_RANGE_DISPLAYED': 10,

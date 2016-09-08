@@ -87,17 +87,15 @@
             						<p>- через форму обратной связи </p>
             						<form id="applyForm" action={% if user.is_authenticated %}"/helpdesk/tickets/submit/"{% else %}"/helpdesk/"{% endif %} method="POST">
             							{% csrf_token %}
-            							<input type="hidden" name="title" id="id_title" value="New apply for course"/>
-            							<input type="hidden" name="submitter_email" value="shelby_dima@mail.ru"/>
             							<input type="hidden" name="priority" value="3"/>
             							
-            							<div class="col-md-4"><span>Ваше имя</span></div><div class="col-md-8"><input class="email-box" type="text" name="name" id="id_apl_name"/></div>
-            							<div class="col-md-4"><span>Ваш E-mail</span></div><div class="col-md-8"><input class="email-box" type="email" name="email" id="id_apl_email" /></div>
+            							<div class="col-md-4"><span>Ваше имя</span></div><div class="col-md-8"><input class="email-box" type="text" name="name" id="id_apl_name" required /></div>
+            							<div class="col-md-4"><span>Ваш E-mail</span></div><div class="col-md-8"><input class="email-box" type="email" name="submitter_email" id="id_apl_email" required /></div>
             							<div class="col-md-4"><span>Ваш телефон</span></div><div class="col-md-8"><input class="email-box" type="text" name="phone" id="id_apl_phone" /></div>
             							<div class="col-md-4"><span>Название курса</span></div>
             							<div class="col-md-8">
-            								<select name="queue">
-            									<option selected disabled>- Выбрать из списка -</option>
+            								<select name="queue" required >
+            									<option selected value="">- Выбрать из списка -</option>
             									{% get_queue_all_pages fiber_page as list %}
             					                		{% for item in list %}
             					                    				<option value="{{ item.id }}">{{ item.title }}</option>
@@ -105,7 +103,7 @@
 								
 									</select>
             							</div>
-            							<div class="col-md-4"><span>Комментарий</span></div><div class="col-md-8"><input class="email-box" type="textarea" name="comment" id="id_apl_comment" />
+            							<div class="col-md-4"><span>Комментарий</span></div><div class="col-md-8"><input class="email-box" type="textarea" name="body" id="id_apl_comment" />
                                         <button type="submit" class="estut-btn-v2 default-color active btn-right" style="border: none;">Отправить</button>
             							</div>
             							

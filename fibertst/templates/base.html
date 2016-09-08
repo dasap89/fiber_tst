@@ -228,13 +228,13 @@
                  <div class="newsletter-form">
                       <form action="/contact-me/" method="POST">
                       	{% csrf_token %}
-                           <input class="email-box" type="text" name="name" id="id_name" placeholder="Ваше Имя" />
+                           <input class="email-box" type="text" name="name" id="id_name" placeholder="Ваше Имя" required />
                            <span class="icon"><i class="fa fa-child" aria-hidden="true"></i></span>
                            {{ form.name.errors }}
-                           <input class="email-box" type="email" name="email" id="id_email" placeholder="Ваш E-mail "/>
+                           <input class="email-box" type="email" name="email" id="id_email" placeholder="Ваш E-mail " required/>
                            <span class="icon"><i class="fa fa-envelope-o"></i></span>
                            {{ form.email.errors }}
-                           <input  type="textarea" name="message" id="text" placeholder="Введите сообщение..."/>
+                           <input  type="textarea" name="message" id="text" placeholder="Введите сообщение..." required/>
                            {{ form.message.errors }}
                            <button type="submit" class="estut-btn-v2 default-color active" style="border: none;">Отправить</button>
                      </form>
@@ -322,9 +322,9 @@
 		    $("#applyForm").on('submit', function (e) {
                 e.preventDefault();
                 var url = $(e.currentTarget).attr('action')
-                var body = 'Пользователь '.concat($('#id_apl_name').val(),' (email: ',$('#id_apl_email').val(),') хочет записаться на курс. Номер его телефона ',$('#id_apl_phone').val(),'. Коментарий: ',$('#id_apl_comment').val()); //$('#inputEmail').val()
+                var title = $('#id_apl_name').val().concat(' applies for the course')
                 var data = {
-                    'body': body
+                    'title': title
                 }
                 var formData =  $(e.currentTarget).serialize() + '&' + $.param(data);
                 
