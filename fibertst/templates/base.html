@@ -75,19 +75,21 @@
             <![endif]-->
 
 
-            <div class="wrapper">
+	<div class="wrapper home-v3">
             	<!-- Start Header Area -->
             	<header id="header" class="solid-bg-header clear">
+            	{% block header %}
             		<div class="header-v1">
+                {% endblock %}
             			<!-- Start Header Top -->
             			<div class="header-top clear line">
             				<div class="container">
             					<div class="row">
             						<div class="col-md-7 col-xs-4 p0">
             							<div class="header-top-left header-top-info">
-            								<p><a href="index-3.html#"><i class="fa fa-lock"></i>Вход</a></p>
-            								<p><a class="phone-top hidden-sm hidden-xs" href="tel:+3211234567"><i class="fa fa-phone"></i>+7 (978) 729-78-01</a></p>
-            								<p><a class=" hidden-sm hidden-xs" href="mailto:admib@bootexperts.com"><i class="fa fa-envelope"></i>ideas.crimea@yandex.ru</a></p>  
+            								<p><a href="/login/"><i class="fa fa-lock"></i>Вход</a></p>
+            								<p><a class="phone-top hidden-sm hidden-xs" href="tel:+79787297801"><i class="fa fa-phone"></i>+7 (978) 729-78-01</a></p>
+            								<p><a class=" hidden-sm hidden-xs" href="mailto:ideas.crimea@yandex.ru"><i  class="fa fa-envelope"></i>ideas.crimea@yandex.ru</a></p>  
             							</div>
             						</div>
             						<div class="col-md-5 col-xs-8 p0">
@@ -156,15 +158,32 @@
             	<!-- End Header Area -->	
             	<!--Start Page Content -->
             	<div class="page-content">
+            	<!-- Start breadcrumbs -->
+		{% if fiber_page.title != "Главная" %}
             	<div class="breadcrumbs about">
-            			<div class="container">
+            	    <div class="container">
             				<div class="row">
-            					<div class="col-md-12">
-            						<a href="index.html">Главная</a><span class="separator">/</span><a href="blog-grid.html">О школе</a><span class="separator">/</span>
-            					</div>
-            				</div>
-            			</div>
-            		</div>
+            					<div class="col-md-12">  
+            	                    <nav id="breadcrumbs" class="clearfix">
+					               
+					                
+					                <a href="/">Главная</a>
+					                
+					                
+						                {% for fiber_page in fiber_current_pages %}
+						
+							                <span class="separator">/</span><a href="{{ fiber_page.get_absolute_url }}">{{ fiber_page.title }}</a>
+						
+						                {% endfor %}
+						              
+    					            
+				                    </nav>
+				                </div>
+				            </div>
+				        </div>
+				</div>
+				{% endif %}
+				<!-- End breadcrumbs -->
 
             		{% block mains %}
 					{% endblock %}
@@ -315,6 +334,18 @@
         <script src="{% static "js/video-bg.js" %}" ></script>
 		<!-- TOP Menu Stick
 		============================================ -->	
+		<script type="text/javascript">
+			var s = $("#sticky-div");
+			var pos = s.position();
+			$(window).on('scroll', function() {
+				var windowpos = $(window).scrollTop();
+				if (windowpos > pos.top) {
+					s.addClass("stick");
+				} else {
+					s.removeClass("stick");
+				}
+			});
+		</script>
 		<!-- main JS
 		============================================ -->		
 		<script src="{% static "js/main.js" %}" ></script>

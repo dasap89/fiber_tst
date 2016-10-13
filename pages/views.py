@@ -13,6 +13,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.conf import settings
 from pure_pagination.mixins import PaginationMixin
+from pinax.comments.models import Comment
 
 
 class IndexPage(FiberTemplateView):
@@ -20,7 +21,15 @@ class IndexPage(FiberTemplateView):
         data = super(IndexPage, self).get_context_data()
         data['blog_pages'] = Page.objects.filter(parent__url='blog').order_by('-id')[:4]
         data['cources'] = Page.objects.filter(parent__url='cources').order_by('-id')[:4]
-        data['reviews'] = Page.objects.filter(parent__url='reviews').order_by('-id')[:8]
+        
+        ids = Page.objects.filter(
+            Q(url='reviews')|Q(parent__url__icontains='reviews')
+            ).values('id')
+        
+        data['reviews'] =  Comment.objects.filter(
+                                object_id__in=ids
+                        ).order_by('-submit_date')[:8]
+        
         return data
 
 

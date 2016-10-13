@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load staticfiles fiber_tags page_tags thumbnail %}
 
+{% block header %}
+<div class="header-v3">
+{% endblock %}
+
 {% block mains %}
 <!-- Start Slider Area -->
 <section class="slider-area slide-v2">
@@ -42,8 +46,8 @@
             							<ul class="estut-tab" role="tablist">
             								<li role="presentation" class="active"><a href="index-3.html#trending" aria-controls="trending" role="tab" data-toggle="tab">О школе</a></li>
             								<li role="presentation"><a href="index-3.html#certified" aria-controls="certified" role="tab" data-toggle="tab">Преподователи</a></li>
-            								<li role="presentation"><a href="index-3.html#book" aria-controls="book" role="tab" data-toggle="tab">База знаний</a></li>
-            								<li role="presentation"><a href="index-3.html#certification" aria-controls="certification" role="tab" data-toggle="tab">Видео-презентация</a></li>
+            								<li role="presentation"><a href="index-3.html#book" aria-controls="book" role="tab" data-toggle="tab">FAQ</a></li>
+            								<li role="presentation"><a href="index-3.html#certification" aria-controls="certification" role="tab" data-toggle="tab">Контакты</a></li>
             							</ul>
             						</div>
             						<!-- Start Tab Menu-->
@@ -83,12 +87,12 @@
             								<div class="row">
             									<div class="col-md-6 text-left">
             										<div class="estut-tab-caption ">
-            											{% show_page_content 'knowlages' %}
+            											{% show_page_content 'faq' %}
             										</div>
             									</div>
             									<div class="col-md-6 text-right">
             										<div class="estut-tab-img">
-            											{% show_page_content 'knowlages-img' %}
+            											{% show_page_content 'faq-img' %}
             										</div>
             									</div>
             								</div>
@@ -97,12 +101,12 @@
             								<div class="row">
             									<div class="col-md-6 text-left">
             										<div class="estut-tab-caption ">
-            											{% show_page_content 'video-presentation' %}
+            											{% show_page_content 'contact' %}
             										</div>
             									</div>
             									<div class="col-md-6 text-right">
             										<div class="estut-tab-img">
-            											{% show_page_content 'video-presentation-img' %}
+            											{% show_page_content 'contact-img' %}
             										</div>
             									</div>
             								</div>
@@ -127,7 +131,7 @@
             						<h3>Форум</h3>
             						<p>пообщайся с единомышленниками</p>
             						<div class="ser-dis-btn">
-            							<a href="#" class="estut-btn-v2 default-color">Подробнее</a>
+            							<a href="/forum/" class="estut-btn-v2 default-color">Подробнее</a>
             						</div>
             					</div>
             				</div>
@@ -285,21 +289,29 @@
        <div class="row">
             <div class="testimonials-list">
                 <!-- Single Testimonial -->
+                {% if reviews %}              
                 {% for review in reviews %}
-                    {% if review %}
                         <div class="single-testimonial">
                             <div class="col-md-12 text-left ">
                                    <div class="testimonial-text">
-                                        <p>{% show_page_content review 'main' %}</p>
+                                        <p>{{ review.comment }}</p>
                                    </div>
                                    <div class="author">
-                                        <a href="#" target="_blank">{{ review.metadata.teacher }}</a>
+                                        <p>{% if review.name %}{{ review.name }}{% else %}Нет автора{% endif %}</p>
                                    </div>
                             </div>
                         </div>
-                    {% endif %}
-                {% endfor %}
-                <!-- /Single Testimonial -->
+                    {% endfor %}
+		{% else %}
+		<div class="single-testimonial">
+                            <div class="col-md-12 text-left ">
+                                   <div class="testimonial-text">
+                                       <p>Отзывов нет</p>
+                </div>
+                            </div>
+                        </div>
+                {% endif %}
+                <!-- Single Testimonial -->
            </div>
      </div>
 </div>
@@ -321,7 +333,7 @@
               <div class="col-md-6">
 		                   <div class="single-blog big-post overlay-bg">
 		                        <div class="blog-thumb">
-		                             <img src="{% thumbnail blog.get_image 1014x600 crop="smart" %}" alt="{{ blog.title }}">
+		                             <img src="{% thumbnail blog.get_image 1014x600 crop="smart" %}" alt="{{ blog.title }}" style="height: 450px;">
 		                       </div>
 		                       <div class="blog-info  text-left">
 		                             <h3 class="blog-title"><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h3>
@@ -344,7 +356,7 @@
                 {% if forloop.counter > 1 %}
                 <li class="single-blog-post fix">
                        <div class="blog-thumb">
-                            <img src="{% thumbnail blog.image 120x116 %}" alt="{{ blog.title }}">
+                            <img src="{% thumbnail blog.image 120x116 crop="smart" %}" alt="{{ blog.title }}">
                       </div>
                       <div class="blog-info  text-left">
                             <h3 class="blog-title "><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h3>

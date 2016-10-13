@@ -115,11 +115,13 @@
 			</div>
 			<!--End Right Side -->
 			<!--Start Right Side -->
-            {% for blog in fiber_page.get_children %}
+			{% if fiber_page.parent.get_absolute_url %}
+			
+            {% for blog in fiber_page.get_siblings %}
                 <div class="col-md-4 margin-b45">
                     <div class="single-blog big-post overlay-bg ">
                         <div class="blog-thumb opasity-right-post">
-                            <img src="{% thumbnail blog.image 358x178 %}" alt="{{ blog.title }}">
+                            <img src="{% thumbnail blog.get_image 358x178 crop="smart" %}" alt="{{ blog.title }}">
                         </div>
                         <div class="blog-info  blog-right-wrap">
                             <h3 class="blog-title"><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h3>
@@ -135,6 +137,31 @@
                     </div>
                 </div>
             {% endfor %}
+            
+            {% else %}
+            
+            	{% for blog in fiber_page.get_children %}
+                <div class="col-md-4 margin-b45">
+                    <div class="single-blog big-post overlay-bg ">
+                        <div class="blog-thumb opasity-right-post">
+                            <img src="{% thumbnail blog.get_image 358x178 crop="smart" %}" alt="{{ blog.title }}">
+                        </div>
+                        <div class="blog-info  blog-right-wrap">
+                            <h3 class="blog-title"><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h3>
+                            <div class="blog-post-dlc">
+                                <ul>
+                                    <li>
+                                        <span class="date-time date-time-latest-big"><i class="fa fa-calendar"></i>{{ blog.updated }} </span>
+                                    </li>
+                                    <li><a href="{{ blog.get_absolute_url }}"><i class="fa fa-comments-o"></i></a>4</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            
+            {% endif %}
 			<!--End Right Side -->
 		</div>
 	</div>
