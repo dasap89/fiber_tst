@@ -126,7 +126,7 @@
             					<div class="service-bg">
             						<img src="{% static "img/others/service/1.jpg" %}" alt="service bg">
             					</div>
-            					<div class="service-info">
+            					<div class="service-info" style="padding-top:130px;">
 
             						<h3>Форум</h3>
             						<p>пообщайся с единомышленниками</p>
@@ -141,7 +141,7 @@
             					<div class="service-bg">
             						<img src="{% static "img/others/service/2.jpg" %}" alt="service bg">
             					</div>
-            					<div class="service-info">
+            					<div class="service-info" style="padding-top:130px;">
 
             						<h3>Оплата</h3>
             						<p>как оплатить обучение в школе</p>
@@ -156,7 +156,7 @@
             					<div class="service-bg">
             						<img src="{% static "img/others/service/3.jpg" %}" alt="service bg">
             					</div>
-            					<div class="service-info">
+            					<div class="service-info" style="padding-top:130px;">
 
             						<h3>Как записаться?</h3>
             						<p>быстрая возможность присоединиться</p>
@@ -195,7 +195,7 @@
 				{% with course=cources.0 %}
 				<div class="single-course big-post clear ">
                                     <div class="col-md-6 padding0">
-                                         <div class="course-thumb">
+                                         <div class="course-thumb" style="max-height:435px;">
                                               <img src="{{ course.get_image.url }}" alt="{{ course.title }}" />
                                               <div class="price-sticker">
                                                    <span><i class="fa fa-rub" aria-hidden="true"></i>{{ course.metadata.description }}</span>
@@ -332,8 +332,8 @@
          {% with blog=blog_pages.0 %}
               <div class="col-md-6">
 		                   <div class="single-blog big-post overlay-bg">
-		                        <div class="blog-thumb">
-		                             <img src="{% thumbnail blog.get_image 1014x600 crop="smart" %}" alt="{{ blog.title }}" style="height: 450px;">
+					<div class="blog-thumb opasity-right-post">	                          
+  						<img src="{% thumbnail blog.get_image 1014x600 crop="smart" %}" alt="{{ blog.title }}" style="height: 450px;">
 		                       </div>
 		                       <div class="blog-info  text-left">
 		                             <h3 class="blog-title"><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h3>
@@ -355,8 +355,8 @@
                 {% for blog in blog_pages %}
                 {% if forloop.counter > 1 %}
                 <li class="single-blog-post fix">
-                       <div class="blog-thumb">
-                            <img src="{% thumbnail blog.image 120x116 crop="smart" %}" alt="{{ blog.title }}">
+ 			<div class="blog-thumb opasity-right-post">                          
+				<img src="{% thumbnail blog.image 120x116 crop="smart" %}" alt="{{ blog.title }}">
                       </div>
                       <div class="blog-info  text-left">
                             <h3 class="blog-title "><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h3>

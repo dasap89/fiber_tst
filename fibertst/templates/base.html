@@ -79,7 +79,7 @@
             	<!-- Start Header Area -->
             	<header id="header" class="solid-bg-header clear">
             	{% block header %}
-            		<div class="header-v1">
+            		<div class="header">
                 {% endblock %}
             			<!-- Start Header Top -->
             			<div class="header-top clear line">
@@ -112,7 +112,7 @@
             			</div>
             			<!-- End Header Top -->
             			<!-- Start Header Bottom -->
-            			<div class="header-bottom" id="sticky-div">
+            			<div class="header-bottom" id="sticky-div" style="width: 100%">
             				<div class="container">
             					<div class="row  hidden-sm hidden-xs">
             						<!-- Start Logo -->
@@ -169,11 +169,12 @@
 					                
 					                <a href="/">Главная</a>
 					                
-					                
 						                {% for fiber_page in fiber_current_pages %}
-						
-							                <span class="separator">/</span><a href="{{ fiber_page.get_absolute_url }}">{{ fiber_page.title }}</a>
-						
+						                    {% if forloop.last %}
+							                <span class="separator">/</span><a href="" style="pointer-events: none; cursor: default;">{{ fiber_page.title }}</a>
+						                    {% else %}
+						                        <span class="separator">/</span><a href="{{ fiber_page.get_absolute_url }}">{{ fiber_page.title }}</a>
+						                    {% endif %}
 						                {% endfor %}
 						              
     					            
@@ -247,13 +248,13 @@
                  <div class="newsletter-form">
                       <form action="/contact-me/" method="POST">
                       	{% csrf_token %}
-                           <input class="email-box" type="text" name="name" id="id_name" placeholder="Ваше Имя" required />
+                           <input class="email-box" type="text" name="name" id="id_name" placeholder="Ваше Имя" style="padding-left:5px;" required />
                            <span class="icon"><i class="fa fa-child" aria-hidden="true"></i></span>
                            {{ form.name.errors }}
-                           <input class="email-box" type="email" name="email" id="id_email" placeholder="Ваш E-mail " required/>
+                           <input class="email-box" type="email" name="email" id="id_email" placeholder="Ваш E-mail " style="padding-left:5px;" required/>
                            <span class="icon"><i class="fa fa-envelope-o"></i></span>
                            {{ form.email.errors }}
-                           <input  type="textarea" name="message" id="text" placeholder="Введите сообщение..." required/>
+                           <input  type="textarea" name="message" id="text" placeholder="Введите сообщение..." style="padding: 10px 0px 78px 5px;" required/>
                            {{ form.message.errors }}
                            <button type="submit" class="estut-btn-v2 default-color active" style="border: none;">Отправить</button>
                      </form>
