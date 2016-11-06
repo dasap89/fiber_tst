@@ -195,7 +195,7 @@
 				{% with course=cources.0 %}
 				<div class="single-course big-post clear ">
                                     <div class="col-md-6 padding0">
-                                         <div class="course-thumb" style="max-height:435px;">
+                                         <div class="course-thumb">
                                               <img src="{{ course.get_image.url }}" alt="{{ course.title }}" />
                                               <div class="price-sticker">
                                                    <span><i class="fa fa-rub" aria-hidden="true"></i>{{ course.metadata.description }}</span>
@@ -236,7 +236,9 @@
                  <!-- Start Single Courses -->
                  <div class="single-course">
                       <div class="course-thumb">
-                           <img src="{% thumbnail course.get_image 360x300 crop="smart" %}" alt="{{ course.title }}" />
+			   <a href="{{ course.get_absolute_url }}">
+                           	<img src="{% thumbnail course.get_image 360x300 crop="smart" %}" alt="{{ course.title }}" />
+			   </a>
                            <div class="price-sticker">
                                 <span><i class="fa fa-rub" aria-hidden="true"></i>{{ course.metadata.description }}</span>
                           </div>

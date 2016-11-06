@@ -50,10 +50,10 @@
 						<div class="post-title-v3">
 						{% comment_count fiber_page as comment_counts %}
 						{% if comment_counts > 0 %}	
+							<h2 class="post-title">Комментарии ({{ comment_counts }})</h2>
 							<div class="review-wrap">
 							<div class="review-inner">
 							<!-- Start Single Review -->
-							<h2 class="post-title">Комментарии ({{ comment_counts }})</h2>
 							{% comments fiber_page as comment_list %}
 							{% for comment in comment_list %}
 								<div class="single-review fix">

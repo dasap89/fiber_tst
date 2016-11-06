@@ -157,7 +157,7 @@
             	</header>
             	<!-- End Header Area -->	
             	<!--Start Page Content -->
-            	<div class="page-content">
+		<div class="page-content page-{{ fiber_page.pk }}">
             	<!-- Start breadcrumbs -->
 		{% if fiber_page.title != "Главная" %}
             	<div class="breadcrumbs about">
@@ -186,8 +186,7 @@
 				{% endif %}
 				<!-- End breadcrumbs -->
 
-            		{% block mains %}
-					{% endblock %}
+            		{% block mains %} {% endblock %}
             			
             		</div>
             		<!-- Start  Footer  Area -->	

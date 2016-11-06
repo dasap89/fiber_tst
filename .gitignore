@@ -52,7 +52,9 @@ fiber/*
 
 media/*
 
-static/*
+static/admin     
+static/css       
+static/fiber 
 
 .idea/*
 
