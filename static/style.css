@@ -350,7 +350,7 @@ body {} .padding45 {
 }
 .big-post .course-content .course-title {
     margin: 0;
-    padding: 30px 0;
+    padding: 25px 0;
     font-size: 30px;
 }
 .big-post .course-content p {
@@ -363,7 +363,7 @@ body {} .padding45 {
 }
 .big-post .author {
     color: #aaa;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     font-family: "ArialRegular";
 }
 .single-course {
@@ -371,7 +371,7 @@ body {} .padding45 {
     box-shadow: 0px 0px 6px 0px #bdc3ca;
 }
 .course-content {
-    padding: 0 30px;
+    padding: 0 25px;
 }
 .populer-courses-list,
 .online-shopping-area {
@@ -382,7 +382,7 @@ body {} .padding45 {
 }
 .course-content .course-title {
     margin: 0;
-    padding: 30px 0 15px 0;
+    padding: 25px 0 15px 0;
     font-size: 14pt;
     font-family: "RobotoBold";
     color: #020202;
@@ -1485,12 +1485,12 @@ body {} .padding45 {
     ----------------------------------------*/
     .big-post .course-thumb {
         float: left;
-        max-height: 435px;
+        max-height: 380px;
         overflow: hidden;
     }
     .big-post .course-thumb img {
         width: 100%;
-        height: 550px;
+        height: 450px;
     }
     .big-post .course-info {
         float: left;
@@ -1769,6 +1769,12 @@ body {} .padding45 {
     .latest-blog-area-v3 {
         margin-top: 50px;
     }
+.school-pic {
+    margin-bottom: 50px;
+}
+.pt50 {
+    padding-top: 50px;
+}
 /*--------------------------------------  
 	9.7 atest Blog Area v3
     ----------------------------------------*/
@@ -1789,7 +1795,7 @@ body {} .padding45 {
 
     }
     .latest-blog-area-v3 .single-blog.big-post .blog-info .blog-post-dlc ul li,
-    .single-blog.big-post .blog-info .blog-post-dlc ul li i {
+    .single-blog.big-post .blog-info .blog-post-dlc ul li .fa-comments-o {
         color: #fff;
         transition: all 0.3s ease 0s;
     }
@@ -1929,13 +1935,14 @@ body {} .padding45 {
     }
     .breadcrumbs {
         padding-bottom: 30px;
-        background-color: #F8F8F8;
         padding-top: 10px;
     }
     .about {
-     background-color: #fff; 
+     background-color: #f8f8f8; 
  }
-
+.page-3 .breadcrumbs {
+    background-color: #fff;
+}
  .sub-title {
     font-size: 14pt;
     font-family: "RobotoRegular";
@@ -2754,7 +2761,7 @@ body {} .padding45 {
         text-transform: uppercase;
     }
     .date-time {
-        color: #111111;
+        color: #020202;
         font-size: 14px;
         font-family: "RobotoRegular";
     }
@@ -2803,16 +2810,20 @@ body {} .padding45 {
         color: #ed8127;
     }
     .reviewer-info .date-time {
-        float: right;
         margin-right: 20px;
     }
 
     .wrap-test {
-        position: absolute;
+        left: 50%;
         display: block;
-        top: 100px;
+        top: 130px;
         width: 100%;
         z-index: 999;
+        top: 50%;
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        position: absolute;
     }
     .blog-info-wrap {
         text-align: center;
@@ -2855,14 +2866,21 @@ body {} .padding45 {
     .schedule-time {
         font-size: 18px;
         color: #000;
+        float: right;
     }
-
+.text-left {
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
 /*--------------------------------------  
     course
     ----------------------------------------*/
+/*
 .course-content {
     margin: 25px;
 }
+*/
     .course-content .intro-text{
         text-align: center;
         color: #030303;
@@ -3684,6 +3702,8 @@ body {} .padding45 {
     .blog-thumb {
         display: block;
         position: relative;
+        max-height: 260px;
+        overflow: hidden;
     }
     .blog-img {
         background-color: #fff;
@@ -3696,10 +3716,10 @@ body {} .padding45 {
     .reviews .reviewer-info {
         margin-top: 0;
     }
-    .reviews .reviewer-name {
+    .reviewer-name {
         color: #ed8127;
     }
-    .reviews .date-time {
+    .date-time {
         color: #d7d7d7;
         margin-right: 0;
         float: left;
