@@ -24,7 +24,7 @@
 									<li>
 										<span class="date-time"><i class="fa fa-calendar"></i>{{ fiber_page.updated }}</span>
 									</li>
-									<li><i class="fa fa-comments-o"></i>2</li>
+									<li><i class="fa fa-comments-o"></i>{% comment_count fiber_page%}</li>
 								</ul>
 							</div>
 							</div>
@@ -130,7 +130,7 @@
                                     <li>
                                         <span class="date-time date-time-latest-big"><i class="fa fa-calendar"></i>{{ blog.updated }} </span>
                                     </li>
-                                    <li><a href="{{ blog.get_absolute_url }}"><i class="fa fa-comments-o"></i></a>4</li>
+                                    <li><a href="{{ blog.get_absolute_url }}"><i class="fa fa-comments-o"></i></a>{% comment_count blog %}</li>
                                 </ul>
                             </div>
                         </div>
@@ -153,7 +153,7 @@
                                     <li>
                                         <span class="date-time date-time-latest-big"><i class="fa fa-calendar"></i>{{ blog.updated }} </span>
                                     </li>
-                                    <li><a href="{{ blog.get_absolute_url }}"><i class="fa fa-comments-o"></i></a>4</li>
+                                    <li><a href="{{ blog.get_absolute_url }}"><i class="fa fa-comments-o"></i></a>{% comment_count blog %}</li>
                                 </ul>
                             </div>
                         </div>

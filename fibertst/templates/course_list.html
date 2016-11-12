@@ -14,24 +14,25 @@
 <div class="container">
 	<div class="row">
 		<div class="blog-post-inner">
-            {% for course in fiber_page.get_children %}
-                <div class="col-md-4 ">
+		{% if object_list %}
+       		        {% for object in object_list %}
+                	    <div class="col-md-4 ">
                     <!-- Start Single Courses -->
                     <div class="single-course">
                         <div class="course-thumb">
-                            <img src="{% thumbnail course.get_image 360x300 crop="smart" %}" alt="{{ course.title }}" />
+                            <img src="{% thumbnail object.get_image 360x300 crop="smart" %}" alt="{{ object.title }}" />
                             <div class="price-sticker">
-                                <span><i class="fa fa-rub" aria-hidden="true"></i>{{ course.metadata.description }}</span>
+                                <span><i class="fa fa-rub" aria-hidden="true"></i>{{ object.metadata.description }}</span>
                             </div>
                         </div>
                         <div class="course-content">
-                            <h2 class="course-title"><a href="{{ course.get_absolute_url }}">{{ course.title }}</a></h2>
-                            <div class="author">Преподователь <a href="{{ course.get_absolute_url }}">{{ course.metadata.teacher }}</a></div>
+                            <h2 class="course-title"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h2>
+                            <div class="author">Преподователь <a href="{{ object.get_absolute_url }}">{{ object.metadata.teacher }}</a></div>
                         </div>
                         <div class="rating">
                             <ul>
                                 <li>
-                                    <p><span><i class="fa fa-book"></i></span>{{ course.get_children.count }} уроков</p>
+                                    <p><span><i class="fa fa-book"></i></span>{{ object.get_children.count }} уроков</p>
                                 </li>
                                 <li>
                                     <p><span><i class="fa fa-comment-o" aria-hidden="true"></i></span>4</p>
@@ -41,22 +42,20 @@
                     </div>
                     <!-- End Single Courses -->
                 </div>
-            {% endfor %}
+                    
+                {% endfor %}
+                </div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12 text-center">
-			<div class="pagination">
-				<ul>
-					<li><a class="active" href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
+                <div class="row">
+		            <div class="col-md-12 text-center">
+                        {% include "_pagination_courses.html" %}
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-md-10">На данный момент доступных курсов нет. Для получения информации свяжитесь с администрацией сайта.</div>
+                </div>
+            {% endif %}
+
 </div>
 <!--End Blog Post Area -->
 </div>
@@ -66,7 +65,7 @@
             			<div class="row">
             				<div class="col-md-12">
             					<div class="area-headding text-center">
-            						<h2 class="section-title" id="how-to-enroll">Как записаться на курс?</h2>
+            						<h2 class="my-target section-title" id="how-to-enroll">Как записаться на курс?</h2>
             					</div>
             				</div>
             				<div class="col-md-12 enroll">
@@ -114,7 +113,7 @@
             			            			<div class="row">
             				<div class="col-md-12 padding-t50">
             					<div class="area-headding text-center">
-            						<h2 class="section-title" id="how-to-pay">Оплата</h2>
+            						<h2 class="my-target section-title" id="how-to-pay">Оплата</h2>
             					</div>
             				</div>
             				<div class="col-md-12 enroll margin-b45">
@@ -129,4 +128,5 @@
             				</div>
             		</div>
             	</section>
+
 {% endblock %}

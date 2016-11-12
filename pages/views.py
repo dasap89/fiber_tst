@@ -13,6 +13,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.conf import settings
 from pure_pagination.mixins import PaginationMixin
+from fiber.mixins import FiberPageMixin
 from pinax.comments.models import Comment
 
 
@@ -112,4 +113,35 @@ class SearchList(PaginationMixin, ListView):
         context = super(SearchList, self).get_context_data(**kwargs)
         context['search'] = self.search
         return context
+
+class CourseListPage(FiberPageMixin, PaginationMixin, ListView):
+    paginate_by = 6
+    template_name = 'course_list.html'
+
+    def get_fiber_page_url(self):
+        return self.request.path_info
+
+    def get_queryset(self):
+        objects = Page.objects.filter(parent__url='cources').order_by('-id')
+        return objects
+
+class ReviewListPage(FiberPageMixin, PaginationMixin, ListView):
+    paginate_by = 8
+    template_name = 'reviews.html'
+
+    def get_fiber_page_url(self):
+        return self.request.path_info
+
+    def get_queryset(self):
+        
+        parent_url = self.request.path[9:-1]
+        
+        if len(parent_url):
+            ids = Page.objects.filter(url__icontains=parent_url).values('id')
+        else:
+            ids = Page.objects.filter(Q(url='reviews')|Q(parent__url__icontains='reviews')).values('id')
+        
+        objects =  Comment.objects.filter(object_id__in=ids).order_by('-submit_date')
+
+        return objects
 

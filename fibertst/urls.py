@@ -18,11 +18,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.conf import settings
 
-from pages.views import IndexPage
+from pages.views import IndexPage 
 
 from pages.views import AboutTechersPage
 
-from pages.views import SearchList
+from pages.views import SearchList, CourseListPage, ReviewListPage
 
 urlpatterns = [
     # Examples:
@@ -33,8 +33,6 @@ urlpatterns = [
     url(r'^admin/fiber/', include('fiber.admin_urls')),
     url(r'^jsi18n/$', 'django.views.i18n.javascript_catalog', {'packages': ('fiber',),}),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^comments/', include('pinax.comments.urls')),
@@ -43,7 +41,11 @@ urlpatterns = [
     
     # url(r'^search/', 'pages.views.search'),
     url(r'^search/', SearchList.as_view()),
-    
+
+    url(r'^cources/$', CourseListPage.as_view()),
+
+    url(r'^reviews/', ReviewListPage.as_view()),
+
     url(r'^contact-me/$', 'pages.views.contact_me'),
     url(r'helpdesk/', include('helpdesk.urls')), # This is needed for helpdesk
 

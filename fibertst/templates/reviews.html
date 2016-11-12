@@ -48,10 +48,7 @@
               <div class="col-md-10 col-md-offset-1">
                 <div class="reviews clear">
                   <!-- Start single-review -->
-                  {% if fiber_page.get_children.count == 0 %}
-                  
-                    {% comments fiber_page as comment_list %}
-                      {% for comment in comment_list %}
+                      {% for comment in object_list %}
                         <div class="single-review fix">
                           <div class="col-md-3 p0">
                             <div class="reviewer-info">
@@ -65,24 +62,6 @@
                         </div>
                       {% endfor %}
           
-                  {% else %}
-                  
-                    {% get_root_and_child_comments fiber_page as comment_list %}
-                      {% for comment in comment_list %}
-                      <div class="single-review fix">
-                        <div class="col-md-3 p0">
-                          <div class="reviewer-info">
-          	                <h4 class="reviewer-name">{{ comment.name }}</h4>
-          	                <span class="date-time">{{ comment.submit_date|date:"d m Y" }}</span>
-                          </div>
-                        </div>
-                        <div class="col-md-9">
-                      	  <p class="reviewer-comment">{{ comment.comment }}</p>
-                        </div>
-                      </div>
-                    {% endfor %}
-          
-                  {% endif %}
                 <!-- End single-review -->
                 </div>
               </div>
@@ -95,15 +74,8 @@
 <!-- Start pagination -->
 <div class="row">
   <div class="col-md-12 text-center">
-    <div class="pagination">
-      <ul>
-        <li><a class="active" href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-      </ul>
-    </div>
-  </div>
+    {% include "_pagination_courses.html" %}
+  </div> 
 </div>
 <!-- End pagination -->
 </div>
